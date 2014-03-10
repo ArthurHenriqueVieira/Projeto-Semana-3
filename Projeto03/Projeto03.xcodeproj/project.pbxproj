@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E3CD03C18CE3EFB00A751DF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3CD03B18CE3EFB00A751DF /* MapKit.framework */; };
+		5E3CD03F18CE500700A751DF /* MapaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CD03E18CE500700A751DF /* MapaController.m */; };
 		5E3D6E0D18CE35BC00FE7BDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3D6E0C18CE35BC00FE7BDE /* Foundation.framework */; };
 		5E3D6E0F18CE35BC00FE7BDE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3D6E0E18CE35BC00FE7BDE /* CoreGraphics.framework */; };
 		5E3D6E1118CE35BC00FE7BDE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3D6E1018CE35BC00FE7BDE /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		5E3CD03B18CE3EFB00A751DF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5E3CD03D18CE500700A751DF /* MapaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapaController.h; sourceTree = "<group>"; };
+		5E3CD03E18CE500700A751DF /* MapaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapaController.m; sourceTree = "<group>"; };
 		5E3D6E0918CE35BC00FE7BDE /* Projeto03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projeto03.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3D6E0C18CE35BC00FE7BDE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5E3D6E0E18CE35BC00FE7BDE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,8 +126,6 @@
 				5E3D6E1C18CE35BC00FE7BDE /* AppDelegate.m */,
 				5E3D6E1E18CE35BC00FE7BDE /* Main_iPhone.storyboard */,
 				5E3D6E2118CE35BC00FE7BDE /* Main_iPad.storyboard */,
-				5E3D6E2418CE35BC00FE7BDE /* ViewController.h */,
-				5E3D6E2518CE35BC00FE7BDE /* ViewController.m */,
 				5E3D6E2718CE35BC00FE7BDE /* Images.xcassets */,
 				5E3D6E1318CE35BC00FE7BDE /* Supporting Files */,
 			);
@@ -163,6 +164,10 @@
 		B3D3820D18CE4CE300DF2D16 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5E3D6E2418CE35BC00FE7BDE /* ViewController.h */,
+				5E3D6E2518CE35BC00FE7BDE /* ViewController.m */,
+				5E3CD03D18CE500700A751DF /* MapaController.h */,
+				5E3CD03E18CE500700A751DF /* MapaController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			files = (
 				5E3D6E2618CE35BC00FE7BDE /* ViewController.m in Sources */,
 				5E3D6E1D18CE35BC00FE7BDE /* AppDelegate.m in Sources */,
+				5E3CD03F18CE500700A751DF /* MapaController.m in Sources */,
 				5E3D6E1918CE35BC00FE7BDE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
