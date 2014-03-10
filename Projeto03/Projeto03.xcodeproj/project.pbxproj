@@ -118,6 +118,7 @@
 		5E3D6E1218CE35BC00FE7BDE /* Projeto03 */ = {
 			isa = PBXGroup;
 			children = (
+				B3D3820D18CE4CE300DF2D16 /* ViewControllers */,
 				5E3D6E1B18CE35BC00FE7BDE /* AppDelegate.h */,
 				5E3D6E1C18CE35BC00FE7BDE /* AppDelegate.m */,
 				5E3D6E1E18CE35BC00FE7BDE /* Main_iPhone.storyboard */,
@@ -157,6 +158,13 @@
 				5E3D6E3718CE35BD00FE7BDE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3D3820D18CE4CE300DF2D16 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
