@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E3CD03C18CE3EFB00A751DF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3CD03B18CE3EFB00A751DF /* MapKit.framework */; };
 		5E3D6E0D18CE35BC00FE7BDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3D6E0C18CE35BC00FE7BDE /* Foundation.framework */; };
 		5E3D6E0F18CE35BC00FE7BDE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3D6E0E18CE35BC00FE7BDE /* CoreGraphics.framework */; };
 		5E3D6E1118CE35BC00FE7BDE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3D6E1018CE35BC00FE7BDE /* UIKit.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E3CD03B18CE3EFB00A751DF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5E3D6E0918CE35BC00FE7BDE /* Projeto03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projeto03.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3D6E0C18CE35BC00FE7BDE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5E3D6E0E18CE35BC00FE7BDE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E3CD03C18CE3EFB00A751DF /* MapKit.framework in Frameworks */,
 				5E3D6E0F18CE35BC00FE7BDE /* CoreGraphics.framework in Frameworks */,
 				5E3D6E1118CE35BC00FE7BDE /* UIKit.framework in Frameworks */,
 				5E3D6E0D18CE35BC00FE7BDE /* Foundation.framework in Frameworks */,
@@ -103,6 +106,7 @@
 		5E3D6E0B18CE35BC00FE7BDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E3CD03B18CE3EFB00A751DF /* MapKit.framework */,
 				5E3D6E0C18CE35BC00FE7BDE /* Foundation.framework */,
 				5E3D6E0E18CE35BC00FE7BDE /* CoreGraphics.framework */,
 				5E3D6E1018CE35BC00FE7BDE /* UIKit.framework */,
@@ -474,6 +478,7 @@
 				5E3D6E4018CE35BD00FE7BDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E3D6E4118CE35BD00FE7BDE /* Build configuration list for PBXNativeTarget "Projeto03Tests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +487,7 @@
 				5E3D6E4318CE35BD00FE7BDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
