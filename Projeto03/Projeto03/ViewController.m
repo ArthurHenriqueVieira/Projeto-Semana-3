@@ -17,9 +17,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self setMapa:[[MKMapView alloc] initWithFrame:CGRectMake(0, 30, 400, 600)]];
-    [[self view] addSubview:[self mapa]];
 }
 
 - (void)didReceiveMemoryWarning
