@@ -15,8 +15,8 @@
     self = [super init];
     if (self)
     {
-        [self setNome:nome];
-        [self setAvatar:avatar];
+        [self set_nome:nome];
+        [self set_avatar:avatar];
     }
     return self;
 }

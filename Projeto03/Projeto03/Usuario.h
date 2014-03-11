@@ -10,8 +10,8 @@
 
 @interface Usuario : NSObject
 
-@property NSString *nome;
-@property UIImage *avatar;
+@property NSString *_nome;
+@property UIImage *_avatar;
 // @property algumacoisa id_facebook // para agregar facebook ao sistema depois #status
 
 @end
