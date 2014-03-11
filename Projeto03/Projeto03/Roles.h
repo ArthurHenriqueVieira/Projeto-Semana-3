@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Usuario.h"
+#import "Endereco.h"
 
 @interface Roles : NSObject
 
 @property Usuario *dono;
-@property NSString *endereco;
+@property Endereco *endereco;
 @property NSString *descricao;
 @property NSDate *data;
 @property NSMutableArray *convidados; // mutable array de Usuario

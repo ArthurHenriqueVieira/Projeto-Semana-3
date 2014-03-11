@@ -10,7 +10,7 @@
 
 @implementation Roles
 
-- (id)initWithEndereco:(NSString *)endereco
+- (id)initWithEndereco:(Endereco *)endereco
 {
     self = [super init];
     if (self)
