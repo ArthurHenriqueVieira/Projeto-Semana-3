@@ -9,5 +9,46 @@
 #import "ListaRoles.h"
 
 @implementation ListaRoles
++(ListaRoles *) lista
+{
+    static ListaRoles *lista = nil;
+    if (!lista)
+    {
+        lista = [[super allocWithZone:nil] init];
+    }
+    return lista;
+}
+
++(id) allocWithZone: (struct _NSZone *)zone
+{
+    return [self lista];
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        tudo = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+-(NSMutableArray *)todosItens
+{
+    return tudo;
+}
+
+-(Roles *) criarRole:(NSString *)endereco
+{
+    Roles *r = [[Roles alloc] initWithNamePontos:endereco];
+    
+    [tudo addObject: r];
+    
+    return r;
+}
+-(void)removeEndereco: (Roles *)r
+{
+    [tudo removeObjectIdenticalTo:r];
+}
 
 @end

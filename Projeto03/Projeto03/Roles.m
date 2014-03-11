@@ -10,4 +10,13 @@
 
 @implementation Roles
 
+- (id)initWithEndereco:(NSString *)endereco
+{
+    self = [super init];
+    if (self) {
+        [self setEndereco:endereco];
+    }
+    return self;
+}
+
 @end

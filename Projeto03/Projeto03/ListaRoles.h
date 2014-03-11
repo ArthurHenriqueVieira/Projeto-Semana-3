@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class Roles;
 @interface ListaRoles : NSObject
+{
+    NSMutableArray *tudo;
+}
+
++(ListaRoles *) lista;
+
+-(NSMutableArray *) todosEnderecos;
 
 @end
