@@ -10,7 +10,7 @@
 
 @implementation Usuario
 
-- (id)initWithNomeAndAvatar:(NSString *)nome:(UIImage *)avatar
+- (id)initWithNomeAndAvatar:(NSString *)nome avatar:(UIImage *)avatar
 {
     self = [super init];
     if (self)
