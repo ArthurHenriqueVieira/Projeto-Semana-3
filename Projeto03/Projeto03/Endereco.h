@@ -10,4 +10,6 @@
 
 @interface Endereco : NSObject
 
+@property NSString *_nome;
+
 @end

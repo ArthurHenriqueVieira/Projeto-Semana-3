@@ -10,4 +10,14 @@
 
 @implementation Endereco
 
+- (id)initWithNome:(NSString *)nome
+{
+    self = [super init];
+    if (self)
+    {
+        [self set_nome:nome];
+    }
+    return self;
+}
+
 @end
