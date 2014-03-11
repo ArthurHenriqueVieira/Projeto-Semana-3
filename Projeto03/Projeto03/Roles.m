@@ -13,7 +13,8 @@
 - (id)initWithEndereco:(NSString *)endereco
 {
     self = [super init];
-    if (self) {
+    if (self)
+    {
         [self setEndereco:endereco];
     }
     return self;
