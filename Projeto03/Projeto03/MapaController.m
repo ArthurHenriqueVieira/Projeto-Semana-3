@@ -17,8 +17,10 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self)
+    {
+        [[self mapa] setShowsUserLocation:true];
+        [[self mapa] setDelegate:self];
     }
     return self;
 } 
@@ -37,4 +39,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    [[self mapa] setCenterCoordinate:[[userLocation location] coordinate]];
+}
+
+- (IBAction)mudarMapa:(id)sender
+{
+    if ([sender selectedSegmentIndex] == 0)
+    {
+        [[self mapa] setMapType:MKMapTypeStandard];
+    }else if ([sender selectedSegmentIndex] ==1 )
+    {
+        [[self mapa] setMapType:MKMapTypeSatellite];
+    }else if ([sender selectedSegmentIndex] == 2)
+    {
+        [[self mapa] setMapType:MKMapTypeHybrid];
+    }
+}
 @end

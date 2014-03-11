@@ -8,8 +8,11 @@
 
 #import "ViewController.h"
 
-@interface MapaController : ViewController
+@interface MapaController : ViewController <MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapa;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *tiposMapa;
+- (IBAction)mudarMapa:(id)sender;
 
 @end
