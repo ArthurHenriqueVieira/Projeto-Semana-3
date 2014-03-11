@@ -7,6 +7,7 @@
 //
 
 #import "ListaRoles.h"
+#import "Endereco.h"
 
 @implementation ListaRoles
 
@@ -39,7 +40,7 @@
     return tudo;
 }
 
--(Roles *) criarRole:(NSString *)endereco
+-(Roles *) criarRole:(Endereco *)endereco
 {
     Roles *r = [[Roles alloc] initWithEndereco:endereco];
     
