@@ -10,4 +10,15 @@
 
 @implementation Usuario
 
+- (id)initWithNomeAndAvatar:(NSString *)nome:(UIImage *)avatar
+{
+    self = [super init];
+    if (self)
+    {
+        [self setNome:nome];
+        [self setAvatar:avatar];
+    }
+    return self;
+}
+
 @end
