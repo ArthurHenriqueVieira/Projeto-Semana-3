@@ -200,12 +200,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" id="iXr-J4-J6p">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="pxW-Kn-4w5">
-                            <rect key="frame" x="62" y="7" width="197" height="30"/>
+                            <rect key="frame" x="51" y="6" width="219" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Padrão"/>
-                                <segment title="Satélite"/>
                                 <segment title="Hibrido"/>
+                                <segment title="Satélite"/>
                             </segments>
                             <connections>
                                 <action selector="mudarMapa:" destination="NnZ-In-ll5" eventType="valueChanged" id="2Bt-oH-dEm"/>
