@@ -29,6 +29,7 @@
 		5E3D6E3B18CE35BD00FE7BDE /* Projeto03Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3D6E3A18CE35BD00FE7BDE /* Projeto03Tests.m */; };
 		5E9BD1A318CF850F00FF7BF5 /* Roles.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BD1A218CF850F00FF7BF5 /* Roles.m */; };
 		5E9BD1A618CF878B00FF7BF5 /* ListaRoles.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BD1A518CF878B00FF7BF5 /* ListaRoles.m */; };
+		A07DE7D718CF933700E8784B /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DE7D618CF933700E8784B /* Usuario.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		5E9BD1A218CF850F00FF7BF5 /* Roles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Roles.m; sourceTree = "<group>"; };
 		5E9BD1A418CF878B00FF7BF5 /* ListaRoles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaRoles.h; sourceTree = "<group>"; };
 		5E9BD1A518CF878B00FF7BF5 /* ListaRoles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaRoles.m; sourceTree = "<group>"; };
+		A07DE7D518CF933700E8784B /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Usuario.h; sourceTree = "<group>"; };
+		A07DE7D618CF933700E8784B /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Usuario.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				5E9BD1A218CF850F00FF7BF5 /* Roles.m */,
 				5E9BD1A418CF878B00FF7BF5 /* ListaRoles.h */,
 				5E9BD1A518CF878B00FF7BF5 /* ListaRoles.m */,
+				A07DE7D518CF933700E8784B /* Usuario.h */,
+				A07DE7D618CF933700E8784B /* Usuario.m */,
 			);
 			path = Projeto03;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A07DE7D718CF933700E8784B /* Usuario.m in Sources */,
 				21B7574018CF3DEA006A9986 /* InfoDeRoleController.m in Sources */,
 				21B7573D18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m in Sources */,
 				5E3D6E2618CE35BC00FE7BDE /* ViewController.m in Sources */,

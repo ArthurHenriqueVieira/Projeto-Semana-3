@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Usuario.h"
 
 @interface Roles : NSObject
 
+@property Usuario *dono;
 @property NSString *endereco;
+@property NSString *descricao;
+@property NSDate *data;
+@property NSMutableArray *convidados;
+@property BOOL publico;
 
 @end
