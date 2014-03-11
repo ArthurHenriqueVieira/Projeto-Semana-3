@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Lista de Rolês-->
+        <!--Ista De Role Controller - Lista de Rolês-->
         <scene sceneID="tDD-nH-GmT">
             <objects>
-                <tableViewController id="54z-D8-0Gd" sceneMemberID="viewController">
+                <tableViewController id="54z-D8-0Gd" customClass="LIstaDeRoleController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iwJ-LN-GHD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="43" y="357"/>
         </scene>
-        <!--View Controller - Cadastrar Rolê-->
+        <!--Cadastrar Role Controller View Controller - Cadastrar Rolê-->
         <scene sceneID="hdt-iG-zgJ">
             <objects>
-                <viewController title="Cadastrar Rolê" id="Vvk-Gd-BV5" sceneMemberID="viewController">
+                <viewController title="Cadastrar Rolê" id="Vvk-Gd-BV5" customClass="CadastrarRoleControllerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jEP-sQ-amu"/>
                         <viewControllerLayoutGuide type="bottom" id="9v4-O1-Pyv"/>
@@ -206,10 +206,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="43" y="-372"/>
         </scene>
-        <!--View Controller - Visualizar Rolê-->
+        <!--Info De Role Controller - Visualizar Rolê-->
         <scene sceneID="lA2-Op-rcL">
             <objects>
-                <viewController title="Visualizar Rolê" id="rKN-HA-UMs" sceneMemberID="viewController">
+                <viewController title="Visualizar Rolê" id="rKN-HA-UMs" customClass="InfoDeRoleController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QOV-1p-9f1"/>
                         <viewControllerLayoutGuide type="bottom" id="CeC-es-ty2"/>
@@ -304,7 +304,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="41E-Ua-xMv"/>
-        <segue reference="QrQ-b1-ldz"/>
+        <segue reference="Aro-I1-h2p"/>
+        <segue reference="OMN-TS-qHw"/>
     </inferredMetricsTieBreakers>
 </document>
