@@ -15,7 +15,7 @@
 @property NSString *endereco;
 @property NSString *descricao;
 @property NSDate *data;
-@property NSMutableArray *convidados;
+@property NSMutableArray *convidados; // mutable array de Usuario
 @property BOOL publico;
 
 @end
