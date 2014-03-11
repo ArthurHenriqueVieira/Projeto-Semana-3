@@ -18,4 +18,6 @@
 @property NSMutableArray *convidados; // mutable array de Usuario
 @property BOOL publico;
 
+- (id)initWithEndereco:(NSString *)endereco;
+
 @end

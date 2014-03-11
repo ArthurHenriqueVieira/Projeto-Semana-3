@@ -9,6 +9,7 @@
 #import "ListaRoles.h"
 
 @implementation ListaRoles
+
 +(ListaRoles *) lista
 {
     static ListaRoles *lista = nil;
@@ -40,12 +41,13 @@
 
 -(Roles *) criarRole:(NSString *)endereco
 {
-    Roles *r = [[Roles alloc] initWithNamePontos:endereco];
+    Roles *r = [[Roles alloc] initWithEndereco:endereco];
     
     [tudo addObject: r];
     
     return r;
 }
+
 -(void)removeEndereco: (Roles *)r
 {
     [tudo removeObjectIdenticalTo:r];

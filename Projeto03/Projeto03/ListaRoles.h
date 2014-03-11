@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Roles.h"
 
-@class Roles;
 @interface ListaRoles : NSObject
 {
     NSMutableArray *tudo;
