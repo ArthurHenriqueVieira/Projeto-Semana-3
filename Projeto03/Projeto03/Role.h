@@ -11,7 +11,7 @@
 #import "Usuario.h"
 #import "Endereco.h"
 
-@interface Role : NSObject <MKAnnotation>
+@interface Role : NSObject
 
 @property Usuario *dono;
 @property Endereco *endereco;
