@@ -59,7 +59,7 @@
 {
     NSMutableArray *roles = [[NSMutableArray alloc] init];
     
-    for (Role *role in [ListaRoles lista])
+    for (Role *role in [[ListaRoles lista] pegarLista])
     {
         CLLocation *localA = [[CLLocation alloc] initWithLatitude:origem.latitude longitude:origem.longitude];
         CLLocation *localB = [[CLLocation alloc] initWithLatitude:[role.endereco _coord].latitude longitude:[role.endereco _coord].longitude];
@@ -70,6 +70,11 @@
     }
     
     return roles;
+}
+
+- (NSMutableArray*) pegarLista
+{
+    return tudo;
 }
 
 @end
