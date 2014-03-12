@@ -9,6 +9,9 @@
 #import "ViewController.h"
 
 @interface MapaController : ViewController <MKMapViewDelegate, UITextFieldDelegate>
+{
+    CGPoint coordinates;
+}
 
 @property (strong, nonatomic) MKMapView *mapa;
 @property (strong, nonatomic) UITextField *endereco;
