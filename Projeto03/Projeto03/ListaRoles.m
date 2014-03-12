@@ -54,18 +54,17 @@
     [tudo removeObjectIdenticalTo:r];
 }
 
--(NSArray *)rolesDistando:(double)raio
+-(NSArray *)rolesDistando:(double)metros doLocal:(CLLocationCoordinate2D)origem
 {
     NSMutableArray *roles = [[NSMutableArray alloc] init];
     
     for (Roles *role in [ListaRoles lista])
     {
-        double latitude = [role.endereco _coord].latitude;
-        double longitude = [role.endereco _coord].longitude;
+        CLLocation *localA = [[CLLocation alloc] initWithLatitude:origem.latitude longitude:origem.longitude];
+        CLLocation *localB = [[CLLocation alloc] initWithLatitude:[role.endereco _coord].latitude longitude:[role.endereco _coord].longitude];
+        CLLocationDistance distancia = [localA distanceFromLocation:localB];
         
-        double distancia = sqrt( pow(latitude, 2) + pow(longitude, 2) );
-        
-        if (distancia <= raio)
+        if (distancia <= metros)
             [roles addObject:role];
     }
     

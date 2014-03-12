@@ -16,6 +16,6 @@
 
 +(ListaRoles *) lista;
 
--(NSArray *) rolesDistando:(double)raio; // Unidade de medida em graus?
+-(NSArray *) rolesDistando:(double)metros doLocal:(CLLocationCoordinate2D)origem;
 
 @end
