@@ -27,7 +27,6 @@
 		5E3D6E3118CE35BD00FE7BDE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3D6E1018CE35BC00FE7BDE /* UIKit.framework */; };
 		5E3D6E3918CE35BD00FE7BDE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E3D6E3718CE35BD00FE7BDE /* InfoPlist.strings */; };
 		5E3D6E3B18CE35BD00FE7BDE /* Projeto03Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3D6E3A18CE35BD00FE7BDE /* Projeto03Tests.m */; };
-		5E57689018D0DE3C0032041B /* PVAttractionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E57688F18D0DE3C0032041B /* PVAttractionAnnotation.m */; };
 		5E9BD1A318CF850F00FF7BF5 /* Roles.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BD1A218CF850F00FF7BF5 /* Roles.m */; };
 		5E9BD1A618CF878B00FF7BF5 /* ListaRoles.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BD1A518CF878B00FF7BF5 /* ListaRoles.m */; };
 		5E9BD1A918CF951100FF7BF5 /* Endereco.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BD1A818CF951100FF7BF5 /* Endereco.m */; };
@@ -74,8 +73,6 @@
 		5E3D6E3618CE35BD00FE7BDE /* Projeto03Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Projeto03Tests-Info.plist"; sourceTree = "<group>"; };
 		5E3D6E3818CE35BD00FE7BDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E3D6E3A18CE35BD00FE7BDE /* Projeto03Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Projeto03Tests.m; sourceTree = "<group>"; };
-		5E57688E18D0DE3C0032041B /* PVAttractionAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVAttractionAnnotation.h; sourceTree = "<group>"; };
-		5E57688F18D0DE3C0032041B /* PVAttractionAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVAttractionAnnotation.m; sourceTree = "<group>"; };
 		5E9BD1A118CF850F00FF7BF5 /* Roles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Roles.h; sourceTree = "<group>"; };
 		5E9BD1A218CF850F00FF7BF5 /* Roles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Roles.m; sourceTree = "<group>"; };
 		5E9BD1A418CF878B00FF7BF5 /* ListaRoles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaRoles.h; sourceTree = "<group>"; };
@@ -160,8 +157,6 @@
 				A07DE7D618CF933700E8784B /* Usuario.m */,
 				5E9BD1A718CF951100FF7BF5 /* Endereco.h */,
 				5E9BD1A818CF951100FF7BF5 /* Endereco.m */,
-				5E57688E18D0DE3C0032041B /* PVAttractionAnnotation.h */,
-				5E57688F18D0DE3C0032041B /* PVAttractionAnnotation.m */,
 			);
 			path = Projeto03;
 			sourceTree = "<group>";
@@ -319,7 +314,6 @@
 				21B7573A18CF3D2D006A9986 /* LIstaDeRoleController.m in Sources */,
 				5E9BD1A618CF878B00FF7BF5 /* ListaRoles.m in Sources */,
 				5E3CD03F18CE500700A751DF /* MapaController.m in Sources */,
-				5E57689018D0DE3C0032041B /* PVAttractionAnnotation.m in Sources */,
 				5E3D6E1918CE35BC00FE7BDE /* main.m in Sources */,
 				5E9BD1A318CF850F00FF7BF5 /* Roles.m in Sources */,
 			);

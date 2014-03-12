@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 #import "Usuario.h"
 #import "Endereco.h"
 
-@interface Roles : NSObject
+@interface Roles : NSObject <MKAnnotation>
 
 @property Usuario *dono;
 @property Endereco *endereco;
