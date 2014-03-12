@@ -10,4 +10,9 @@
 
 @interface CadastrarRoleControllerViewController : ViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *imagemAvatar;
+@property (weak, nonatomic) IBOutlet UITextView *textoDescricao;
+@property (weak, nonatomic) IBOutlet UIDatePicker *dataRole;
+@property (weak, nonatomic) IBOutlet UITableView *tabelaConvidados;
+
 @end

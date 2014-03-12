@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tKz-ei-fBb">
-                                <rect key="frame" x="20" y="78" width="75" height="75"/>
+                                <rect key="frame" x="20" y="77" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Informações adicionais do rolê selecionado" translatesAutoresizingMaskIntoConstraints="NO" id="4lI-61-XSe">
@@ -122,6 +122,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cadastrar Rolê" id="mNE-LN-FRT"/>
+                    <connections>
+                        <outlet property="dataRole" destination="ZMd-0b-5pc" id="e3H-2K-BHV"/>
+                        <outlet property="imagemAvatar" destination="tKz-ei-fBb" id="zx4-sS-sc5"/>
+                        <outlet property="tabelaConvidados" destination="B7X-T8-oaF" id="2Mp-EC-t8M"/>
+                        <outlet property="textoDescricao" destination="4lI-61-XSe" id="UnE-Ea-1y3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qjH-bs-YN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -292,6 +298,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" title="Info. de Rolê" id="RLv-qQ-UB0"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="dataRole" destination="aUR-jG-pVz" id="ZrM-ec-h5p"/>
+                        <outlet property="imagemAvatar" destination="1Ym-SZ-Y9h" id="eL9-4q-3Is"/>
+                        <outlet property="tabelaConvidados" destination="45p-A1-Uaf" id="y8X-Ig-svT"/>
+                        <outlet property="textoDescricao" destination="cXj-5d-sgA" id="QB7-dd-Y7d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZS-GE-50g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

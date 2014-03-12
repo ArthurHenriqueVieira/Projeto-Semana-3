@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.imagemAvatar.layer.borderColor = 0;
+    self.imagemAvatar.layer.borderWidth = 1;
 }
 
 - (void)didReceiveMemoryWarning
