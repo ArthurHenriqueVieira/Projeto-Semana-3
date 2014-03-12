@@ -16,6 +16,6 @@
 
 +(ListaRoles *) lista;
 
--(NSMutableArray *) todosEnderecos;
+-(NSArray *) rolesDistando:(double)raio; // Unidade de medida em graus?
 
 @end
