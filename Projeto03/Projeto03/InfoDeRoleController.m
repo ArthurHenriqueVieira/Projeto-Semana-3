@@ -23,10 +23,21 @@
     return self;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for (UIView *view in [[self view] subviews])
+    {
+        [view resignFirstResponder];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.imagemAvatar.layer.borderColor = 0;
+    self.imagemAvatar.layer.borderWidth = 1;
 }
 
 - (void)didReceiveMemoryWarning

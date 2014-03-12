@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface Endereco : NSObject
 
 @property NSString *_nome;
+@property CLLocationCoordinate2D _coord;
 
 @end

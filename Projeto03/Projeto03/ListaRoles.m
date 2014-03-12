@@ -40,9 +40,9 @@
     return tudo;
 }
 
--(Roles *) criarRole:(Endereco *)endereco
+-(Roles *) criarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco
 {
-    Roles *r = [[Roles alloc] initWithEndereco:endereco];
+    Roles *r = [[Roles alloc] initWithDono:dono andEndereco:endereco];
     
     [tudo addObject: r];
     
@@ -52,6 +52,24 @@
 -(void)removeEndereco: (Roles *)r
 {
     [tudo removeObjectIdenticalTo:r];
+}
+
+-(NSArray *)rolesDistando:(double)raio
+{
+    NSMutableArray *roles = [[NSMutableArray alloc] init];
+    
+    for (Roles *role in [ListaRoles lista])
+    {
+        double latitude = [role.endereco _coord].latitude;
+        double longitude = [role.endereco _coord].longitude;
+        
+        double distancia = sqrt( pow(latitude, 2) + pow(longitude, 2) );
+        
+        if (distancia <= raio)
+            [roles addObject:role];
+    }
+    
+    return roles;
 }
 
 @end

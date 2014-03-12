@@ -10,12 +10,13 @@
 
 @implementation Endereco
 
-- (id)initWithNome:(NSString *)nome
+- (id)initWithNome:(NSString *)nome andCoordinate:(CLLocationCoordinate2D)coord
 {
     self = [super init];
     if (self)
     {
         [self set_nome:nome];
+        [self set_coord:coord];
     }
     return self;
 }

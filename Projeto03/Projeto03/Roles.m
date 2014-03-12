@@ -10,11 +10,12 @@
 
 @implementation Roles
 
-- (id)initWithEndereco:(Endereco *)endereco
+- (id)initWithDono:(Usuario *)dono andEndereco:(Endereco *)endereco
 {
     self = [super init];
     if (self)
     {
+        [self setDono:dono];
         [self setEndereco:endereco];
     }
     return self;
