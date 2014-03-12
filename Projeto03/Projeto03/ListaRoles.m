@@ -18,6 +18,7 @@
     {
         lista = [[super allocWithZone:nil] init];
     }
+    
     return lista;
 }
 
