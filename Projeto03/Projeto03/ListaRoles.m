@@ -41,16 +41,16 @@
     return tudo;
 }
 
--(Roles *) criarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco
+-(Role *) criarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco
 {
-    Roles *r = [[Roles alloc] initWithDono:dono andEndereco:endereco];
+    Role *r = [[Role alloc] initWithDono:dono andEndereco:endereco];
     
     [tudo addObject: r];
     
     return r;
 }
 
--(void)removeEndereco: (Roles *)r
+-(void)removeEndereco: (Role *)r
 {
     [tudo removeObjectIdenticalTo:r];
 }
@@ -59,7 +59,7 @@
 {
     NSMutableArray *roles = [[NSMutableArray alloc] init];
     
-    for (Roles *role in [ListaRoles lista])
+    for (Role *role in [ListaRoles lista])
     {
         CLLocation *localA = [[CLLocation alloc] initWithLatitude:origem.latitude longitude:origem.longitude];
         CLLocation *localB = [[CLLocation alloc] initWithLatitude:[role.endereco _coord].latitude longitude:[role.endereco _coord].longitude];

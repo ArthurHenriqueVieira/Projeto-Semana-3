@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 ARTHUR HENRIQUE VIEIRA DE OLIVEIRA. All rights reserved.
 //
 
-#import "Roles.h"
+#import "Role.h"
 
-@implementation Roles
+@implementation Role
 
 - (id)initWithDono:(Usuario *)dono andEndereco:(Endereco *)endereco
 {

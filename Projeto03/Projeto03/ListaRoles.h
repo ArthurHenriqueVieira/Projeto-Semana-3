@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Roles.h"
+#import "Role.h"
 
 @interface ListaRoles : NSObject
 {

@@ -52,8 +52,6 @@
 
 - (void)atualizarData
 {
-    NSString *lbl = self.botaoData.titleLabel.text;
-    
     [self.botaoData setTitle:[NSString stringWithFormat:@"%@", self.dataRole.date] forState:UIControlStateNormal];
 }
 
