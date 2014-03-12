@@ -42,7 +42,23 @@
     [[self endereco] setDelegate:self];
     [[self view] addSubview:[self endereco]];
     
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                         action:@selector(colocarPinch:)];
+    tgr.numberOfTapsRequired = 1;
+    [[self mapa] addGestureRecognizer:tgr];
+    
     [self criarEventosHardCode];
+}
+
+- (void)colocarPinch:(UIGestureRecognizer *)gesture
+{
+    CGPoint point = [gesture locationInView:[self mapa]];
+    CLLocationCoordinate2D locCoord = [[self mapa] convertPoint:point toCoordinateFromView:[self mapa]];
+    MKPointAnnotation *ponto = [[MKPointAnnotation alloc] init];
+    
+    [ponto setCoordinate:locCoord];
+    
+    [[self mapa] addAnnotation:ponto];
 }
 
 - (void)didReceiveMemoryWarning
