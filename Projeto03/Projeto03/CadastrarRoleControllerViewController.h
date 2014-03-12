@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *textoDescricao;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dataRole;
 @property (weak, nonatomic) IBOutlet UITableView *tabelaConvidados;
+@property (weak, nonatomic) IBOutlet UIView *containerDataRole;
+@property (weak, nonatomic) IBOutlet UIButton *botaoData;
 
 @end

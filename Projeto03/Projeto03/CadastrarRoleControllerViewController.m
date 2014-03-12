@@ -29,6 +29,32 @@
     {
         [view resignFirstResponder];
     }
+    
+    UITouch *touch = [touches anyObject];
+    
+    if(touch.view != self.containerDataRole && touch.view != self.dataRole)
+    {
+        self.containerDataRole.hidden = YES;
+        
+        [self atualizarData];
+    }
+}
+
+- (IBAction)botaoDataTap:(id)sender
+{
+    self.containerDataRole.hidden = !self.containerDataRole.hidden;
+    
+    if(self.containerDataRole.hidden == YES)
+    {
+        [self atualizarData];
+    }
+}
+
+- (void)atualizarData
+{
+    NSString *lbl = self.botaoData.titleLabel.text;
+    
+    [self.botaoData setTitle:[NSString stringWithFormat:@"%@", self.dataRole.date] forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad
@@ -41,6 +67,11 @@
     
     self.textoDescricao.layer.borderColor = 0;
     self.textoDescricao.layer.borderWidth = 1;
+    
+    self.containerDataRole.hidden = YES;
+    
+    // Atualiza a data
+    [self atualizarData];
 }
 
 - (void)didReceiveMemoryWarning
