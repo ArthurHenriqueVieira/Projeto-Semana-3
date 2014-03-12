@@ -40,9 +40,9 @@
     return tudo;
 }
 
--(Roles *) criarRole:(Endereco *)endereco
+-(Roles *) criarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco
 {
-    Roles *r = [[Roles alloc] initWithEndereco:endereco];
+    Roles *r = [[Roles alloc] initWithDono:dono andEndereco:endereco];
     
     [tudo addObject: r];
     
