@@ -56,6 +56,7 @@
     [[self mapa] setCenterCoordinate:[[userLocation location] coordinate]];
 }
 
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     for (UIView *view in [[self view] subviews])
@@ -166,10 +167,12 @@
     if ([sender selectedSegmentIndex] == 0)
     {
         [[self mapa] setMapType:MKMapTypeStandard];
-    }else if ([sender selectedSegmentIndex] == 2)
+    }
+    else if ([sender selectedSegmentIndex] == 2)
     {
         [[self mapa] setMapType:MKMapTypeSatellite];
-    }else if ([sender selectedSegmentIndex] == 1)
+    }
+    else if ([sender selectedSegmentIndex] == 1)
     {
         [[self mapa] setMapType:MKMapTypeHybrid];
     }
