@@ -31,7 +31,7 @@
 {
     self = [super init];
     if (self) {
-        tudo = [[NSMutableArray alloc] init];
+        listaDeRoles = [[NSMutableArray alloc] init];
         _id = 0;
     }
     return self;
@@ -39,7 +39,7 @@
 
 -(void)removeEndereco: (Role *)r
 {
-    [tudo removeObjectIdenticalTo:r];
+    [listaDeRoles removeObjectIdenticalTo:r];
 }
 
 -(int)adicionarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico
@@ -58,11 +58,11 @@
 
 -(bool)removerRole:(int)idRole
 {
-    for (Role *role in tudo)
+    for (Role *role in listaDeRoles)
     {
         if (role._id == idRole)
         {
-            [tudo removeObject:role];
+            [listaDeRoles removeObject:role];
             
             return true;
         }
@@ -75,7 +75,7 @@
 {
     NSMutableArray *roles = [[NSMutableArray alloc] init];
     
-    for (Role *role in tudo)
+    for (Role *role in listaDeRoles)
     {
         CLLocation *localA = [[CLLocation alloc] initWithLatitude:origem.latitude longitude:origem.longitude];
         CLLocation *localB = [[CLLocation alloc] initWithLatitude:[role.endereco _coord].latitude longitude:[role.endereco _coord].longitude];

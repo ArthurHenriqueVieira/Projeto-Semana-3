@@ -21,4 +21,7 @@
 @property BOOL publico;
 @property int _id;
 
+// Clona o role
+- (Role*)clonar;
+
 @end
