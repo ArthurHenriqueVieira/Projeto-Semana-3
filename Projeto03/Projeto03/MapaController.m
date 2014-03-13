@@ -19,9 +19,19 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
+        
     }
     return self;
-} 
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Desabilita/habilita algumas funcionalidades dependendo da view controller que chamou esta seguee
+    if([segue.identifier compare:@"editarRole"] == NSOrderedSame)
+    {
+        
+    }
+}
 
 - (void)viewDidLoad
 {
@@ -71,7 +81,6 @@
 {
     [[self mapa] setCenterCoordinate:[[userLocation location] coordinate]];
 }
-
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
