@@ -29,7 +29,13 @@
     // Desabilita/habilita algumas funcionalidades dependendo da view controller que chamou esta seguee
     if([segue.identifier compare:@"editarRole"] == NSOrderedSame)
     {
-        
+        // Ativa funcionalidade de selecionar roles
+        self.modoAtual = MODO_SELECIONAR_LOCAL;
+    }
+    else if([segue.identifier compare:@"infoRole"] == NSOrderedSame || [segue.identifier compare:@"menuPrincipal"] == NSOrderedSame)
+    {
+        // Ativa funcionalidade de localizar roles
+        self.modoAtual = MODO_LOCALIZAR_ROLES;
     }
 }
 
@@ -52,10 +58,19 @@
     [[self endereco] setDelegate:self];
     [[self view] addSubview:[self endereco]];
     
-    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self
+    
+    // Prepara a view dependendo do modo de manipulação de dados
+    if(self.modoAtual == MODO_LOCALIZAR_ROLES)
+    {
+        
+    }
+    else if(self.modoAtual == MODO_SELECIONAR_LOCAL)
+    {
+        UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                                          action:@selector(colocarPinch:)];
-    tgr.numberOfTapsRequired = 1;
-    [[self mapa] addGestureRecognizer:tgr];
+        tgr.numberOfTapsRequired = 1;
+        [[self mapa] addGestureRecognizer:tgr];
+    }
     
     [self criarEventosHardCode];
 }

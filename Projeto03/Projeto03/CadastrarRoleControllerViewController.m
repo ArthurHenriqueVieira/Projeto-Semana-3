@@ -23,6 +23,11 @@
     return self;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if(segue.identifier == "menuPrincipal")
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     for (UIView *view in [[self view] subviews])
