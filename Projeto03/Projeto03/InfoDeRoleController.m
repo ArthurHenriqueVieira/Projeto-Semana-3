@@ -7,6 +7,7 @@
 //
 
 #import "InfoDeRoleController.h"
+#import "MapaController.h"
 
 @interface InfoDeRoleController ()
 
@@ -21,6 +22,15 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier compare:@"verNoMapa"] == NSOrderedSame)
+    {
+        // Troca o modo do mapa para localização de roles
+        [segue.destinationViewController setModoAtual:MODO_SELECIONAR_LOCAL];
+    }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

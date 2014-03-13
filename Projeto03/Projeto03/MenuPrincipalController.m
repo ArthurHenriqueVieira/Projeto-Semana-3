@@ -7,12 +7,22 @@
 //
 
 #import "MenuPrincipalController.h"
+#import "MapaController.h"
 
 @interface MenuPrincipalController ()
 
 @end
 
 @implementation MenuPrincipalController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier compare:@"menuPrincipal"] == NSOrderedSame)
+    {
+        // Troca o modo do mapa para localização de roles
+        [segue.destinationViewController setModoAtual:MODO_LOCALIZAR_ROLES];
+    }
+}
 
 - (void)viewDidLoad
 {

@@ -7,6 +7,7 @@
 //
 
 #import "CadastrarRoleControllerViewController.h"
+#import "MapaController.h"
 
 @interface CadastrarRoleControllerViewController ()
 
@@ -25,7 +26,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if(segue.identifier == "menuPrincipal")
+    if([segue.identifier compare:@"escolherLocal"] == NSOrderedSame)
+    {
+        // Troca o modo do mapa para localização de roles
+        [segue.destinationViewController setModoAtual:MODO_SELECIONAR_LOCAL];
+    }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

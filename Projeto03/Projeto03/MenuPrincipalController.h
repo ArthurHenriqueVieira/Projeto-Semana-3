@@ -11,6 +11,4 @@
 
 @interface MenuPrincipalController : UIViewController
 
-@property (strong, nonatomic) IBOutlet MKMapView *mapa;
-
 @end
