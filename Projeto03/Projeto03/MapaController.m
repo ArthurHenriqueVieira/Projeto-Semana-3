@@ -217,4 +217,21 @@
         [[self mapa] setMapType:MKMapTypeHybrid];
     }
 }
+
+
+// Tentando pegar o Pin
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"String"];
+    if(!annotationView) {
+        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"String"];
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    }
+    
+    annotationView.enabled = YES;
+    annotationView.canShowCallout = YES;
+    
+    return annotationView;
+}
+
 @end
