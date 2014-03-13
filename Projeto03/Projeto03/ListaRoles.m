@@ -42,7 +42,7 @@
     [listaDeRoles removeObjectIdenticalTo:r];
 }
 
--(int)adicionarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico
+- (int)adicionarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico
 {
     Role *novoRole = [[Role alloc] init];
     novoRole.dono = dono;
@@ -72,6 +72,19 @@
 }
 
 - (Role*)getRolePorId:(int)id
+{
+    for(Role *role in listaDeRoles)
+    {
+        if(role._id == id)
+        {
+            return role;
+        }
+    }
+    
+    return nil;
+}
+
+- (NSArray *)rolesDistando:(double)metros doLocal:(CLLocationCoordinate2D)origem
 {
     NSMutableArray *roles = [[NSMutableArray alloc] init];
     
