@@ -15,10 +15,11 @@
     int _id;
 }
 
-+(ListaRoles *) lista;
++ (ListaRoles *) lista;
 
--(int) adicionarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico;
--(bool) removerRole:(int)idRole;
--(NSArray *) rolesDistando:(double)metros doLocal:(CLLocationCoordinate2D)origem;
+- (int) adicionarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico;
+- (bool) removerRole:(int)idRole;
+- (Role*) getRolePorId:(int)id;
+- (NSArray *) rolesDistando:(double)metros doLocal:(CLLocationCoordinate2D)origem;
 
 @end

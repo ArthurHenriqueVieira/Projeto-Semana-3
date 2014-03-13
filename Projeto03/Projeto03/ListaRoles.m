@@ -11,7 +11,7 @@
 
 @implementation ListaRoles
 
-+(ListaRoles *)lista
++ (ListaRoles *)lista
 {
     static ListaRoles *lista = nil;
     if (!lista)
@@ -22,12 +22,12 @@
     return lista;
 }
 
-+(id)allocWithZone: (struct _NSZone *)zone
++ (id)allocWithZone: (struct _NSZone *)zone
 {
     return [self lista];
 }
 
--(id)init
+- (id)init
 {
     self = [super init];
     if (self) {
@@ -37,7 +37,7 @@
     return self;
 }
 
--(void)removeEndereco: (Role *)r
+- (void)removeEndereco: (Role *)r
 {
     [listaDeRoles removeObjectIdenticalTo:r];
 }
@@ -56,7 +56,7 @@
     return novoRole._id;
 }
 
--(bool)removerRole:(int)idRole
+- (bool)removerRole:(int)idRole
 {
     for (Role *role in listaDeRoles)
     {
@@ -71,7 +71,7 @@
     return false;
 }
 
--(NSArray *)rolesDistando:(double)metros doLocal:(CLLocationCoordinate2D)origem
+- (Role*)getRolePorId:(int)id
 {
     NSMutableArray *roles = [[NSMutableArray alloc] init];
     
