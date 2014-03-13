@@ -19,7 +19,6 @@
 @property NSDate *data;
 @property NSMutableArray *convidados; // mutable array de objetos do tipo 'Usuario'
 @property BOOL publico;
-
-- (id)initWithDono:(Usuario *)dono andEndereco:(Endereco *)endereco;
+@property int _id;
 
 @end

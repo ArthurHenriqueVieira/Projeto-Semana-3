@@ -12,10 +12,13 @@
 @interface ListaRoles : NSObject
 {
     NSMutableArray *tudo;
+    int _id;
 }
 
 +(ListaRoles *) lista;
 
+-(int) adicionarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico;
+-(bool) removerRole:(int)idRole;
 -(NSArray *) rolesDistando:(double)metros doLocal:(CLLocationCoordinate2D)origem;
 
 @end
