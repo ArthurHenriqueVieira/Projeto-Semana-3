@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface ViewController : UIViewController
+@interface MenuPrincipalController : UIViewController
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapa;
 

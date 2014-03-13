@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 ARTHUR HENRIQUE VIEIRA DE OLIVEIRA. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MenuPrincipalController.h"
 
-@interface ViewController ()
+@interface MenuPrincipalController ()
 
 @end
 
-@implementation ViewController
+@implementation MenuPrincipalController
 
 - (void)viewDidLoad
 {

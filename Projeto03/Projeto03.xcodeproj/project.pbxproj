@@ -20,7 +20,7 @@
 		5E3D6E1D18CE35BC00FE7BDE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3D6E1C18CE35BC00FE7BDE /* AppDelegate.m */; };
 		5E3D6E2018CE35BC00FE7BDE /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E3D6E1E18CE35BC00FE7BDE /* Main_iPhone.storyboard */; };
 		5E3D6E2318CE35BC00FE7BDE /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E3D6E2118CE35BC00FE7BDE /* Main_iPad.storyboard */; };
-		5E3D6E2618CE35BC00FE7BDE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3D6E2518CE35BC00FE7BDE /* ViewController.m */; };
+		5E3D6E2618CE35BC00FE7BDE /* MenuPrincipalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3D6E2518CE35BC00FE7BDE /* MenuPrincipalController.m */; };
 		5E3D6E2818CE35BC00FE7BDE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E3D6E2718CE35BC00FE7BDE /* Images.xcassets */; };
 		5E3D6E2F18CE35BD00FE7BDE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3D6E2E18CE35BD00FE7BDE /* XCTest.framework */; };
 		5E3D6E3018CE35BD00FE7BDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3D6E0C18CE35BC00FE7BDE /* Foundation.framework */; };
@@ -65,8 +65,8 @@
 		5E3D6E1C18CE35BC00FE7BDE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5E3D6E1F18CE35BC00FE7BDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		5E3D6E2218CE35BC00FE7BDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		5E3D6E2418CE35BC00FE7BDE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5E3D6E2518CE35BC00FE7BDE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5E3D6E2418CE35BC00FE7BDE /* MenuPrincipalController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuPrincipalController.h; sourceTree = "<group>"; };
+		5E3D6E2518CE35BC00FE7BDE /* MenuPrincipalController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuPrincipalController.m; sourceTree = "<group>"; };
 		5E3D6E2718CE35BC00FE7BDE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5E3D6E2D18CE35BD00FE7BDE /* Projeto03Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Projeto03Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3D6E2E18CE35BD00FE7BDE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -193,8 +193,8 @@
 		B3D3820D18CE4CE300DF2D16 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5E3D6E2418CE35BC00FE7BDE /* ViewController.h */,
-				5E3D6E2518CE35BC00FE7BDE /* ViewController.m */,
+				5E3D6E2418CE35BC00FE7BDE /* MenuPrincipalController.h */,
+				5E3D6E2518CE35BC00FE7BDE /* MenuPrincipalController.m */,
 				5E3CD03D18CE500700A751DF /* MapaController.h */,
 				5E3CD03E18CE500700A751DF /* MapaController.m */,
 				21B7573818CF3D2D006A9986 /* LIstaDeRoleController.h */,
@@ -308,7 +308,7 @@
 				A07DE7D718CF933700E8784B /* Usuario.m in Sources */,
 				21B7574018CF3DEA006A9986 /* InfoDeRoleController.m in Sources */,
 				21B7573D18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m in Sources */,
-				5E3D6E2618CE35BC00FE7BDE /* ViewController.m in Sources */,
+				5E3D6E2618CE35BC00FE7BDE /* MenuPrincipalController.m in Sources */,
 				5E9BD1A918CF951100FF7BF5 /* Endereco.m in Sources */,
 				5E3D6E1D18CE35BC00FE7BDE /* AppDelegate.m in Sources */,
 				21B7573A18CF3D2D006A9986 /* LIstaDeRoleController.m in Sources */,

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 ARTHUR HENRIQUE VIEIRA DE OLIVEIRA. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MenuPrincipalController.h"
 
-@interface CadastrarRoleControllerViewController : ViewController
+@interface CadastrarRoleControllerViewController : MenuPrincipalController
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagemAvatar;
 @property (weak, nonatomic) IBOutlet UITextView *textoDescricao;
