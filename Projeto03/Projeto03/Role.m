@@ -34,4 +34,13 @@
     return novoRole;
 }
 
+- (void)copiarCamposDe:(Role*)role
+{
+    self.dono = role.dono;
+    self.endereco = role.endereco;
+    self.data = role.data;
+    self.convidados = role.convidados;
+    self.publico = role.publico;
+}
+
 @end

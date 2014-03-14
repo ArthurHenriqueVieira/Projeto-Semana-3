@@ -24,4 +24,6 @@
 // Clona o role
 - (Role*)clonar;
 
+- (void)copiarCamposDe:(Role*)role;
+
 @end

@@ -84,6 +84,20 @@
     return nil;
 }
 
+- (int)atualizarRole:(Role*)role
+{
+    Role *roleAtual = [self getRolePorId:role._id];
+    
+    if(roleAtual == nil)
+    {
+        return -1;
+    }
+    
+    [roleAtual copiarCamposDe:role];
+    
+    return 0;
+}
+
 - (NSArray *)rolesDistando:(double)metros doLocal:(CLLocationCoordinate2D)origem
 {
     NSMutableArray *roles = [[NSMutableArray alloc] init];
