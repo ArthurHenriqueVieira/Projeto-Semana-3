@@ -12,6 +12,7 @@
 
 @property NSString *_nome;
 @property UIImage *_avatar;
+@property int _id;
 // @property algumacoisa id_facebook // para agregar facebook ao sistema depois #status
 
 @end
