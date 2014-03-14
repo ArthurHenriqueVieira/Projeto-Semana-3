@@ -72,11 +72,11 @@
     return false;
 }
 
-- (Role*)getRolePorId:(int)id
+- (Role*)getRolePorId:(int)idRole
 {
     for(Role *role in listaDeRoles)
     {
-        if(role._id == id)
+        if(role._id == idRole)
         {
             return role;
         }
