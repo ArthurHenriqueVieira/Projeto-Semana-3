@@ -31,6 +31,7 @@
 {
     self = [super init];
     if (self) {
+        listaDeUsuarios = [[NSMutableArray alloc] init];
         listaDeRoles = [[NSMutableArray alloc] init];
         _idUsuarios = 0;
         _idRoles = 0;
@@ -43,6 +44,56 @@
     [listaDeRoles removeObjectIdenticalTo:r];
 }
 
+// Gerenciamento de Usuários
+- (int)adicionarUsuario:(NSString*)nome avatar:(UIImage*)avatar
+{
+    Usuario *user = [[Usuario alloc] init];
+    user._nome = nome;
+    user._avatar = avatar;
+    user._id = _idUsuarios++;
+    
+    return _idUsuarios;
+}
+- (bool)removerUsuario:(int)idUsuario
+{
+    Usuario *user = [self getUsuarioPorId:idUsuario];
+    
+    if(user != nil)
+    {
+        [listaDeUsuarios removeObjectIdenticalTo:user];
+        return true;
+    }
+    
+    return false;
+}
+- (Usuario*)getUsuarioPorId:(int)idUsuario
+{
+    for(Usuario *usuario in listaDeUsuarios)
+    {
+        if(usuario._id == idUsuario)
+        {
+            return usuario;
+        }
+    }
+    
+    return nil;
+}
+- (int)atualizarUsuario:(Usuario*)usuario
+{
+    Usuario *usuarioAtual = [self getUsuarioPorId:usuario._id];
+    
+    if(usuarioAtual == nil)
+    {
+        return -1;
+    }
+    
+    [usuarioAtual copiarCamposDe:usuario];
+    
+    return 0;
+}
+
+
+// Gerenciamento de Roles
 - (int)adicionarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico
 {
     Role *novoRole = [[Role alloc] init];
