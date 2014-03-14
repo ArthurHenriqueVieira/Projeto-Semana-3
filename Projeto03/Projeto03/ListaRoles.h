@@ -12,6 +12,7 @@
 
 @interface ListaRoles : NSObject
 {
+    NSMutableArray *listaDeUsuarios;
     NSMutableArray *listaDeRoles;
     int _idUsuarios;
     int _idRoles;
@@ -20,7 +21,7 @@
 + (ListaRoles *) lista;
 
 // Gerenciamento de Usuários
-- (int)adicionarUsuario:(NSString*)nome avatar:(UIImage*)imagem;
+- (int)adicionarUsuario:(NSString*)nome avatar:(UIImage*)avatar;
 - (bool)removerUsuario:(int)idUsuario;
 - (Usuario*)getUsuarioPorId:(int)idUsuario;
 - (int)atualizarUsuario:(Usuario*)usuario;
