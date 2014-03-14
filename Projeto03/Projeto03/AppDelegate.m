@@ -7,12 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import "ListaRoles.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // Dá um init no sigleton ListaRole
+    [ListaRoles lista];
+    
     return YES;
 }
 							
