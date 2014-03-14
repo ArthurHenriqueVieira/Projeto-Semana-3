@@ -18,6 +18,8 @@
     int _idRoles;
 }
 
+@property CLGeocoder *geocoder;
+
 + (ListaRoles *) lista;
 
 // Gerenciamento de Usuários

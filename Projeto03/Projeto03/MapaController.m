@@ -7,6 +7,7 @@
 //
 
 #import "MapaController.h"
+#import "ListaRoles.h"
 
 @interface MapaController ()
 
@@ -72,7 +73,7 @@
         [[self mapa] addGestureRecognizer:tgr];
     }
     
-    [self criarEventosHardCode];
+    [self adicionarEventosProximos];
 }
 
 - (void)colocarPinch:(UIGestureRecognizer *)gesture
@@ -113,9 +114,12 @@
     return true;
 }
 
-- (void)criarEventosHardCode
+- (void)adicionarEventosProximos
 {
-    CLGeocoder *geo = [[CLGeocoder alloc] init];
+    // Pega os rolês próximos do usuário
+    NSArray *roles = [[ListaRoles lista] rolesDistando:200000000 doLocal:CLLocationCoordinate2DMake(10, 10)];
+    
+    /*CLGeocoder *geo = [[CLGeocoder alloc] init];
     [geo geocodeAddressString:@"Av Engenheiro Eusébio Stevaux, 823, São Paulo, SP" completionHandler:^(NSArray *placemarks, NSError *error)
      {
          for (CLPlacemark *placemark in placemarks)
@@ -161,7 +165,7 @@
              
              [[self mapa] addAnnotation:ponto];
          }
-     }];
+     }];*/
 }
 
 // Metodo para marcar um novo ponto no mapa

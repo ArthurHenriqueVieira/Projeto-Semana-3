@@ -31,10 +31,21 @@
 {
     self = [super init];
     if (self) {
+        // Cria o geocoder
+        self.geocoder = [[CLGeocoder alloc] init];
+        
         listaDeUsuarios = [[NSMutableArray alloc] init];
         listaDeRoles = [[NSMutableArray alloc] init];
         _idUsuarios = 0;
         _idRoles = 0;
+        
+        
+        // Cria uns cadastros aleatórios q
+        Usuario *joao = [self getUsuarioPorId:[self adicionarUsuario:@"João" avatar:nil]];
+        Usuario *maria = [self getUsuarioPorId:[self adicionarUsuario:@"Maria" avatar:nil]];
+        
+        [self adicionarRoleDo:joao noEndereco:@"Av Engenheiro Eusébio Stevaux, 823, São Paulo, SP" comDescricao:@"Rolê dos bródê" naData:[NSDate date] comConvidados:nil sendoPublico:false];
+        [self adicionarRoleDo:maria noEndereco:@"Rua Manuel FIgueiredo Landim, 600, São Paulo, SP" comDescricao:@"Rolê das mina rçrssrçs" naData:[NSDate date] comConvidados:nil sendoPublico:false];
     }
     return self;
 }
@@ -98,7 +109,22 @@
 {
     Role *novoRole = [[Role alloc] init];
     novoRole.dono = dono;
-    novoRole.endereco = endereco;
+    
+    Endereco *end = [[Endereco alloc] init];
+    
+    end._nome = endereco;
+    
+    // Acha as coordenadas e atualiza o endereço
+    [self.geocoder geocodeAddressString:endereco completionHandler:^(NSArray *placemarks, NSError *error)
+     {
+         for (CLPlacemark *placemark in placemarks)
+         {
+             end._coord = placemark.location.coordinate;
+             end._inicializado = YES;
+         }
+     }];
+    
+    novoRole.endereco = end;
     novoRole.descricao = descricao;
     novoRole.data = data;
     novoRole.convidados = convidados;
