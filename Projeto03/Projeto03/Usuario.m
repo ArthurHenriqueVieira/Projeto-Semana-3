@@ -21,4 +21,19 @@
     return self;
 }
 
+- (Usuario*)clonar
+{
+    Usuario *usuario = [[Usuario alloc] initWithNomeAndAvatar:self._nome avatar:self._avatar];
+    usuario._id = self._id;
+    
+    return usuario;
+}
+
+- (void)copiarCamposDe:(Usuario*)usuario
+{
+    self._nome = usuario._nome;
+    self._avatar = usuario._avatar;
+    self._id = usuario._id;
+}
+
 @end

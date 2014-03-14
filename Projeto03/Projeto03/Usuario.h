@@ -15,4 +15,7 @@
 @property int _id;
 // @property algumacoisa id_facebook // para agregar facebook ao sistema depois #status
 
+- (Usuario*)clonar;
+- (void)copiarCamposDe:(Usuario*)usuario;
+
 @end
