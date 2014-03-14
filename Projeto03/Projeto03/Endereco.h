@@ -13,6 +13,7 @@
 
 @property NSString *_nome;
 @property CLLocationCoordinate2D _coord;
+@property bool _inicializado;
 
 - (id)initWithNome:(NSString *)nome andCoordinate:(CLLocationCoordinate2D)coord;
 
