@@ -59,14 +59,12 @@
 
 - (bool)removerRole:(int)idRole
 {
-    for (Role *role in listaDeRoles)
+    Role *role = [self getRolePorId:idRole];
+    
+    if(role != nil)
     {
-        if (role._id == idRole)
-        {
-            [listaDeRoles removeObject:role];
-            
-            return true;
-        }
+        [listaDeRoles removeObjectIdenticalTo:role];
+        return true;
     }
     
     return false;
