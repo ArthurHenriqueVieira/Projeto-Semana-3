@@ -32,7 +32,8 @@
     self = [super init];
     if (self) {
         listaDeRoles = [[NSMutableArray alloc] init];
-        _id = 0;
+        _idUsuarios = 0;
+        _idRoles = 0;
     }
     return self;
 }
@@ -51,7 +52,7 @@
     novoRole.data = data;
     novoRole.convidados = convidados;
     novoRole.publico = publico;
-    novoRole._id = _id++;
+    novoRole._id = _idRoles++;
     
     return novoRole._id;
 }

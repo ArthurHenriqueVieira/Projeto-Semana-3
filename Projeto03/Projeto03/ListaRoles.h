@@ -12,7 +12,8 @@
 @interface ListaRoles : NSObject
 {
     NSMutableArray *listaDeRoles;
-    int _id;
+    int _idUsuarios;
+    int _idRoles;
 }
 
 + (ListaRoles *) lista;
