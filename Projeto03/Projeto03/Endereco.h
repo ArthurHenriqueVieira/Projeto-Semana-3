@@ -14,4 +14,6 @@
 @property NSString *_nome;
 @property CLLocationCoordinate2D _coord;
 
+- (id)initWithNome:(NSString *)nome andCoordinate:(CLLocationCoordinate2D)coord;
+
 @end

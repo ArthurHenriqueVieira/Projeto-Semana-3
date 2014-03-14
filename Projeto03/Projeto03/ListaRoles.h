@@ -28,7 +28,7 @@
 
 
 // Gerenciamento de Roles
-- (int)adicionarRoleDo:(Usuario *)dono noEndereco:(Endereco *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico;
+- (int)adicionarRoleDo:(Usuario *)dono noEndereco:(NSString *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico;
 - (bool)removerRole:(int)idRole;
 - (Role*)getRolePorId:(int)idRole;
 - (int)atualizarRole:(Role*)role;
