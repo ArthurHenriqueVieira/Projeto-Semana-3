@@ -31,6 +31,7 @@
     self.data = role.data;
     self.convidados = role.convidados;
     self.publico = role.publico;
+    self._id = role._id;
 }
 
 @end
