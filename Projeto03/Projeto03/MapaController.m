@@ -87,9 +87,14 @@
 // Centraliza o mapa no usuário
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
+    // Centraliza o mapa ao redor da posição atual do usuário
     [[self mapa] setCenterCoordinate:[[userLocation location] coordinate]];
     
+    // Dá um zoom na região atual do usuário
+    self.mapa.region = MKCoordinateRegionMake(userLocation.location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+    
     self.localizacaoAtual = userLocation.location.coordinate;
+    
     
     [self atualizarEventosProximos];
 }
@@ -184,18 +189,33 @@
 
 
 // Tentando pegar o Pin
-/*- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
+    // Caso o tipo de anotação seja um MKUserLocation, nil é retornado para que o controle
+    // padrão seja criado
+    if([annotation class] == [MKUserLocation class])
+    {
+        return nil;
+    }
+    
     MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"String"];
-    if(!annotationView) {
-        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"String"];
+    if(!annotationView)
+    {
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"String"];
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        NSLog(@"%@", annotation);
     }
     
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
     
     return annotationView;
-}*/
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"Tapeo, fi!");
+}
 
 @end
