@@ -117,6 +117,7 @@
     end._nome = endereco;
     
     // Acha as coordenadas e atualiza o endereço
+    self.geocoder = [[CLGeocoder alloc] init];
     [self.geocoder geocodeAddressString:endereco completionHandler:^(NSArray *placemarks, NSError *error)
      {
          for (CLPlacemark *placemark in placemarks)

@@ -19,6 +19,8 @@
 @property (strong, nonatomic) MKMapView *mapa;
 @property (strong, nonatomic) UITextField *endereco;
 
+@property bool adicionouRoles;
+@property CLLocationCoordinate2D localizacaoAtual;
 @property int modoAtual;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tiposMapa;

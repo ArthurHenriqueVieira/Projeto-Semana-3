@@ -15,16 +15,6 @@
 
 @implementation MapaController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        
-    }
-    return self;
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Desabilita/habilita algumas funcionalidades dependendo da view controller que chamou esta seguee
@@ -59,6 +49,7 @@
     [[self endereco] setDelegate:self];
     [[self view] addSubview:[self endereco]];
     
+    self.adicionouRoles = NO;
     
     // Prepara a view dependendo do modo de manipulação de dados
     if(self.modoAtual == MODO_LOCALIZAR_ROLES)
@@ -73,7 +64,7 @@
         [[self mapa] addGestureRecognizer:tgr];
     }
     
-    [self adicionarEventosProximos];
+    //[self adicionarEventosProximos];
 }
 
 - (void)colocarPinch:(UIGestureRecognizer *)gesture
@@ -93,9 +84,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Centraliza o mapa no usuário
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     [[self mapa] setCenterCoordinate:[[userLocation location] coordinate]];
+    
+    self.localizacaoAtual = userLocation.location.coordinate;
+    
+    [self atualizarEventosProximos];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -114,11 +110,22 @@
     return true;
 }
 
-- (void)adicionarEventosProximos
+- (void)atualizarEventosProximos
 {
-    // Pega os rolês próximos do usuário
-    NSArray *roles = [[ListaRoles lista] rolesDistando:200000000 doLocal:CLLocationCoordinate2DMake(10, 10)];
+    self.adicionouRoles = YES;
     
+    // Pega os rolês próximos do usuário
+    NSArray *roles = [[ListaRoles lista] rolesDistando:10000 doLocal:self.localizacaoAtual];
+    
+    for(Role *role in roles)
+    {
+        MKPointAnnotation *ponto = [[MKPointAnnotation alloc] init];
+        
+        ponto.coordinate = role.endereco._coord;
+        [ponto setTitle:role.endereco._nome];
+        
+        [self.mapa addAnnotation:ponto];
+    }
     /*CLGeocoder *geo = [[CLGeocoder alloc] init];
     [geo geocodeAddressString:@"Av Engenheiro Eusébio Stevaux, 823, São Paulo, SP" completionHandler:^(NSArray *placemarks, NSError *error)
      {
@@ -222,7 +229,7 @@
     }
 }
 
-
+/*
 // Tentando pegar o Pin
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
@@ -236,6 +243,6 @@
     annotationView.canShowCallout = YES;
     
     return annotationView;
-}
+}*/
 
 @end
