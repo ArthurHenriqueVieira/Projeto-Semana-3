@@ -63,6 +63,8 @@
     user._avatar = avatar;
     user._id = _idUsuarios++;
     
+    [listaDeUsuarios addObject:user];
+    
     return _idUsuarios;
 }
 - (bool)removerUsuario:(int)idUsuario
