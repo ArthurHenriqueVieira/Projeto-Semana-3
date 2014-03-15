@@ -126,53 +126,6 @@
         
         [self.mapa addAnnotation:ponto];
     }
-    /*CLGeocoder *geo = [[CLGeocoder alloc] init];
-    [geo geocodeAddressString:@"Av Engenheiro Eusébio Stevaux, 823, São Paulo, SP" completionHandler:^(NSArray *placemarks, NSError *error)
-     {
-         for (CLPlacemark *placemark in placemarks)
-         {
-             // Criando a localização
-             CLLocationCoordinate2D local;
-             // Criando o ponto
-             MKPointAnnotation *ponto = [[MKPointAnnotation alloc] init];
-             
-             // Criando a latitude e a longitude
-             NSString *_latitude = [NSString stringWithFormat:@"%f", [[placemark location] coordinate].latitude];
-             NSString *_longitude = [NSString stringWithFormat:@"%f", [[placemark location] coordinate].longitude];
-             local.latitude = [_latitude doubleValue];
-             local.longitude = [_longitude doubleValue];
-             
-             ponto.coordinate = local;
-             
-             [ponto setTitle:@"Av Engenheiro Eusébio Stevaux, 823, São Paulo, SP"];
-             
-             [[self mapa] addAnnotation:ponto];
-         }
-     }];
-    
-    CLGeocoder *geo2 = [[CLGeocoder alloc] init];
-    [geo2 geocodeAddressString:@"Rua Manuel FIgueiredo Landim, 600, São Paulo, SP" completionHandler:^(NSArray *placemarks, NSError *error)
-     {
-         for (CLPlacemark *placemark in placemarks)
-         {
-             // Criando a localização
-             CLLocationCoordinate2D local;
-             // Criando o ponto
-             MKPointAnnotation *ponto = [[MKPointAnnotation alloc] init];
-             
-             // Criando a latitude e a longitude
-             NSString *_latitude = [NSString stringWithFormat:@"%f", [[placemark location] coordinate].latitude];
-             NSString *_longitude = [NSString stringWithFormat:@"%f", [[placemark location] coordinate].longitude];
-             local.latitude = [_latitude doubleValue];
-             local.longitude = [_longitude doubleValue];
-             
-             ponto.coordinate = local;
-             
-             [ponto setTitle:@"Rua Manuel FIgueiredo Landim, 600, São Paulo, SP"];
-             
-             [[self mapa] addAnnotation:ponto];
-         }
-     }];*/
 }
 
 // Metodo para marcar um novo ponto no mapa
@@ -229,9 +182,9 @@
     }
 }
 
-/*
+
 // Tentando pegar o Pin
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+/*- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"String"];
     if(!annotationView) {
