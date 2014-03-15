@@ -7,6 +7,7 @@
 //
 
 #import "MenuPrincipalController.h"
+#import "Role.h"
 
 #define MODO_LOCALIZAR_ROLES 0
 #define MODO_SELECIONAR_LOCAL 1
@@ -26,5 +27,17 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tiposMapa;
 
 - (IBAction)mudarMapa:(id)sender;
+
+@end
+
+@interface RoleAnnotation : MKPointAnnotation
+
+@property Role *role;
+
+- (id)initWithRole:(Role*)role;
+
+@end
+
+@interface RoleAnnotationView : MKPinAnnotationView
 
 @end

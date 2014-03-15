@@ -15,4 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *dataRole;
 @property (weak, nonatomic) IBOutlet UITableView *tabelaConvidados;
 
+- (void)mostrarRole:(Role*)role;
+
 @end

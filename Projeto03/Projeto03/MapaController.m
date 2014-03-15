@@ -8,6 +8,7 @@
 
 #import "MapaController.h"
 #import "ListaRoles.h"
+#import "InfoDeRoleController.h"
 
 @interface MapaController ()
 
@@ -17,17 +18,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Desabilita/habilita algumas funcionalidades dependendo da view controller que chamou esta seguee
-    if([segue.identifier compare:@"editarRole"] == NSOrderedSame)
-    {
-        // Ativa funcionalidade de selecionar roles
-        self.modoAtual = MODO_SELECIONAR_LOCAL;
-    }
-    else if([segue.identifier compare:@"infoRole"] == NSOrderedSame || [segue.identifier compare:@"menuPrincipal"] == NSOrderedSame)
-    {
-        // Ativa funcionalidade de localizar roles
-        self.modoAtual = MODO_LOCALIZAR_ROLES;
-    }
+    segue
 }
 
 - (void)viewDidLoad
@@ -124,7 +115,7 @@
     
     for(Role *role in roles)
     {
-        MKPointAnnotation *ponto = [[MKPointAnnotation alloc] init];
+        RoleAnnotation *ponto = [[RoleAnnotation alloc] initWithRole:role];
         
         ponto.coordinate = role.endereco._coord;
         [ponto setTitle:role.endereco._nome];
@@ -201,7 +192,7 @@
     MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"String"];
     if(!annotationView)
     {
-        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"String"];
+        annotationView = [[RoleAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"String"];
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         
         NSLog(@"%@", annotation);
@@ -215,7 +206,27 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    NSLog(@"Tapeo, fi!");
+    RoleAnnotation *annotation = view.annotation;
+    
+    [self performSegueWithIdentifier:@"verInformacoes" sender:self];
 }
+
+@end
+
+@implementation RoleAnnotation
+
+- (id)initWithRole:(Role*)role
+{
+    self = [super init];
+    if (self)
+    {
+        self.role = role;
+    }
+    return self;
+}
+
+@end
+
+@implementation RoleAnnotationView
 
 @end

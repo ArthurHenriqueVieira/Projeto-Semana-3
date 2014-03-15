@@ -251,12 +251,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </navigationItem>
                     <connections>
                         <outlet property="tiposMapa" destination="pxW-Kn-4w5" id="G6U-H9-iNo"/>
-                        <segue destination="rKN-HA-UMs" kind="custom" id="Aro-I1-h2p"/>
+                        <segue destination="rKN-HA-UMs" kind="custom" identifier="verInformacoes" id="Aro-I1-h2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PCJ-5e-xvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="-372"/>
+            <point key="canvasLocation" x="48" y="-426"/>
         </scene>
         <!--Info De Role Controller - Visualizar Rolê-->
         <scene sceneID="lA2-Op-rcL">
@@ -352,7 +352,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZS-GE-50g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="499" y="-372"/>
+            <point key="canvasLocation" x="499" y="-426"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iGQ-j2-x5y">
