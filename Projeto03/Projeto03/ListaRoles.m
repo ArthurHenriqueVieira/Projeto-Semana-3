@@ -122,6 +122,8 @@
              end._coord = placemark.location.coordinate;
              end._inicializado = YES;
          }
+         
+         NSLog(@"Descobri as coordenadas do endereço %@!", end._nome);
      }];
     
     novoRole.endereco = end;
