@@ -344,6 +344,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" title="Info. de Rolê" id="RLv-qQ-UB0"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="btnVerNoMapa" destination="3eT-rd-84O" id="sYI-xs-pDZ"/>
                         <outlet property="dataRole" destination="aUR-jG-pVz" id="ZrM-ec-h5p"/>
                         <outlet property="imagemAvatar" destination="1Ym-SZ-Y9h" id="eL9-4q-3Is"/>
                         <outlet property="tabelaConvidados" destination="45p-A1-Uaf" id="y8X-Ig-svT"/>

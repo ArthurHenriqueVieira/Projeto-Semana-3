@@ -18,7 +18,13 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    segue
+    if([segue.identifier isEqualToString:@"verInformacoes"])
+    {
+        InfoDeRoleController *controller = segue.destinationViewController;
+        
+        controller.veioDeMapa = YES;
+        [controller mostrarRole:self.roleParaMostrar];
+    }
 }
 
 - (void)viewDidLoad
@@ -194,8 +200,6 @@
     {
         annotationView = [[RoleAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"String"];
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        
-        NSLog(@"%@", annotation);
     }
     
     annotationView.enabled = YES;
@@ -208,11 +212,15 @@
 {
     RoleAnnotation *annotation = view.annotation;
     
+    self.roleParaMostrar = annotation.role;
+    
     [self performSegueWithIdentifier:@"verInformacoes" sender:self];
 }
 
 @end
 
+
+// RoleAnnotation
 @implementation RoleAnnotation
 
 - (id)initWithRole:(Role*)role
@@ -227,6 +235,8 @@
 
 @end
 
+
+// RoleAnnotationView
 @implementation RoleAnnotationView
 
 @end

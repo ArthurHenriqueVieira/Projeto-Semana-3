@@ -7,6 +7,7 @@
 //
 
 #import "MenuPrincipalController.h"
+#import "Role.h"
 
 @interface InfoDeRoleController : UIViewController
 
@@ -14,6 +15,11 @@
 @property (weak, nonatomic) IBOutlet UITextView *textoDescricao;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dataRole;
 @property (weak, nonatomic) IBOutlet UITableView *tabelaConvidados;
+@property (weak, nonatomic) IBOutlet UIButton *btnVerNoMapa;
+
+@property (weak) Role *roleAtual;
+
+@property BOOL veioDeMapa;
 
 - (void)mostrarRole:(Role*)role;
 

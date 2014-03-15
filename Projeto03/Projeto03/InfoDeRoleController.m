@@ -48,12 +48,29 @@
     
     self.imagemAvatar.layer.borderColor = 0;
     self.imagemAvatar.layer.borderWidth = 1;
+    
+    if(self.veioDeMapa)
+    {
+        [self.btnVerNoMapa setHidden:YES];
+    }
+    
+    [self atualizarCampos];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)mostrarRole:(Role *)role
+{
+    self.roleAtual = role;
+}
+
+- (void)atualizarCampos
+{
+    [self.textoDescricao setText:self.roleAtual.descricao];
 }
 
 @end

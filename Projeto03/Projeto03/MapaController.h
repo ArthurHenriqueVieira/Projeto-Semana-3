@@ -24,6 +24,8 @@
 @property CLLocationCoordinate2D localizacaoAtual;
 @property int modoAtual;
 
+@property (weak) Role *roleParaMostrar;
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tiposMapa;
 
 - (IBAction)mudarMapa:(id)sender;
