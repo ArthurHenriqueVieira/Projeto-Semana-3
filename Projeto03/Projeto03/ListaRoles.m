@@ -131,6 +131,8 @@
     novoRole.publico = publico;
     novoRole._id = _idRoles++;
     
+    [listaDeRoles addObject:novoRole];
+    
     return novoRole._id;
 }
 
