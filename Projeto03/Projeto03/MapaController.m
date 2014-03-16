@@ -61,8 +61,12 @@
         tgr.numberOfTapsRequired = 1;
         [[self mapa] addGestureRecognizer:tgr];
     }
-    
-    //[self adicionarEventosProximos];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // Remove o delegate
+    [[ListaRoles lista] removerDelegate:self];
 }
 
 - (void)colocarPinch:(UIGestureRecognizer *)gesture
