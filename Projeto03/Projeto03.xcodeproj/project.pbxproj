@@ -79,6 +79,7 @@
 		5E9BD1A518CF878B00FF7BF5 /* ListaRoles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaRoles.m; sourceTree = "<group>"; };
 		5E9BD1A718CF951100FF7BF5 /* Endereco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endereco.h; sourceTree = "<group>"; };
 		5E9BD1A818CF951100FF7BF5 /* Endereco.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Endereco.m; sourceTree = "<group>"; };
+		A074F82218D5FD81005E0321 /* ListaRolesDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListaRolesDelegate.h; sourceTree = "<group>"; };
 		A07DE7D518CF933700E8784B /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Usuario.h; sourceTree = "<group>"; };
 		A07DE7D618CF933700E8784B /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Usuario.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +158,7 @@
 				A07DE7D618CF933700E8784B /* Usuario.m */,
 				5E9BD1A718CF951100FF7BF5 /* Endereco.h */,
 				5E9BD1A818CF951100FF7BF5 /* Endereco.m */,
+				A074F82218D5FD81005E0321 /* ListaRolesDelegate.h */,
 			);
 			path = Projeto03;
 			sourceTree = "<group>";
@@ -254,6 +256,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "ARTHUR HENRIQUE VIEIRA DE OLIVEIRA";
 				TargetAttributes = {
+					5E3D6E0818CE35BC00FE7BDE = {
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
+					};
 					5E3D6E2C18CE35BD00FE7BDE = {
 						TestTargetID = 5E3D6E0818CE35BC00FE7BDE;
 					};
