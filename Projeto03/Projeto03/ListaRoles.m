@@ -36,6 +36,7 @@
         
         listaDeUsuarios = [[NSMutableArray alloc] init];
         listaDeRoles = [[NSMutableArray alloc] init];
+        listaDeDelegates = [[NSMutableArray alloc] init];
         _idUsuarios = 0;
         _idRoles = 0;
         
@@ -127,6 +128,15 @@
          }
          
          NSLog(@"Descobri as coordenadas do endereço %@!", end._nome);
+         
+         // Notifica os delegates
+         for(id<ListaRolesDelegate> del in listaDeDelegates)
+         {
+             if([del respondsToSelector:@selector(listaRole:atualizouEnderecoDe:)])
+             {
+                 [del listaRole:self atualizouEnderecoDe:novoRole];
+             }
+         }
      }];
     
     novoRole.endereco = end;
@@ -137,6 +147,15 @@
     novoRole._id = _idRoles++;
     
     [listaDeRoles addObject:novoRole];
+    
+    // Notifica os delegates
+    for(id<ListaRolesDelegate> del in listaDeDelegates)
+    {
+        if([del respondsToSelector:@selector(listaRole:adicionouRole:)])
+        {
+            [del listaRole:self adicionouRole:novoRole];
+        }
+    }
     
     return novoRole._id;
 }
@@ -196,6 +215,18 @@
     }
     
     return roles;
+}
+
+
+// Gerenciamento de delegates
+- (void)registrarDelegate:(id<ListaRolesDelegate>)delegate
+{
+    [listaDeDelegates addObject:delegate];
+}
+
+- (void)removerDelegate:(id<ListaRolesDelegate>)delegate
+{
+    [listaDeDelegates removeObjectIdenticalTo:delegate];
 }
 
 @end
