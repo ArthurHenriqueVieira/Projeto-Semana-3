@@ -56,10 +56,11 @@
     }
     else if(self.modoAtual == MODO_SELECIONAR_LOCAL)
     {
-        UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self
-                                                                         action:@selector(colocarPinch:)];
-        tgr.numberOfTapsRequired = 1;
-        [[self mapa] addGestureRecognizer:tgr];
+        
+        UILongPressGestureRecognizer *segurar = [[UILongPressGestureRecognizer alloc]
+                                              initWithTarget:self action:@selector(colocarPinch:)];
+        [segurar setMinimumPressDuration:1.0];;  //tempo que tem que ficar com o dedo na tela
+        [[self mapa] addGestureRecognizer:segurar];
     }
 }
 
@@ -69,7 +70,7 @@
     [[ListaRoles lista] removerDelegate:self];
 }
 
-- (void)colocarPinch:(UIGestureRecognizer *)gesture
+- (void)colocarPinch:(UILongPressGestureRecognizer *)gesture
 {
     CGPoint point = [gesture locationInView:[self mapa]];
     CLLocationCoordinate2D locCoord = [[self mapa] convertPoint:point toCoordinateFromView:[self mapa]];
