@@ -7,12 +7,13 @@
 //
 
 #import "MenuPrincipalController.h"
+#import "ListaRolesDelegate.h"
 #import "Role.h"
 
 #define MODO_LOCALIZAR_ROLES 0
 #define MODO_SELECIONAR_LOCAL 1
 
-@interface MapaController : UIViewController <MKMapViewDelegate, UITextFieldDelegate>
+@interface MapaController : UIViewController <MKMapViewDelegate, UITextFieldDelegate, ListaRolesDelegate>
 {
     CGPoint coordinates;
 }

@@ -51,7 +51,8 @@
     // Prepara a view dependendo do modo de manipulação de dados
     if(self.modoAtual == MODO_LOCALIZAR_ROLES)
     {
-        
+        // Adiciona essa classe como delegate para recebimento de eventos de mudanças de roles
+        [[ListaRoles lista] registrarDelegate:self];
     }
     else if(self.modoAtual == MODO_SELECIONAR_LOCAL)
     {
@@ -115,6 +116,9 @@
 - (void)atualizarEventosProximos
 {
     self.adicionouRoles = YES;
+    
+    // Remove os pins atuais
+    [self.mapa removeAnnotations:self.mapa.annotations];
     
     // Pega os rolês próximos do usuário
     NSArray *roles = [[ListaRoles lista] rolesDistando:10000 doLocal:self.localizacaoAtual];
@@ -182,6 +186,12 @@
     {
         [[self mapa] setMapType:MKMapTypeHybrid];
     }
+}
+
+// Métodos do delegate
+- (void)listaRole:(ListaRoles *)lista atualizouEnderecoDe:(Role *)role
+{
+    [self atualizarEventosProximos];
 }
 
 
