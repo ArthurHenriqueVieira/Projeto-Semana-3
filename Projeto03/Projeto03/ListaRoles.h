@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "Role.h"
 #import "Usuario.h"
+#import "ListaRolesDelegate.h"
 
 @interface ListaRoles : NSObject
 {
     NSMutableArray *listaDeUsuarios;
     NSMutableArray *listaDeRoles;
+    NSMutableArray *listaDeDelegates;
     int _idUsuarios;
     int _idRoles;
 }
@@ -35,5 +37,10 @@
 - (Role*)getRolePorId:(int)idRole;
 - (int)atualizarRole:(Role*)role;
 - (NSArray *)rolesDistando:(double)metros doLocal:(CLLocationCoordinate2D)origem;
+
+
+// Gerenciamento de delegates
+- (void)registrarDelegate:(id<ListaRolesDelegate>)delegate;
+- (void)removerDelegate:(id<ListaRolesDelegate>)delegate;
 
 @end
