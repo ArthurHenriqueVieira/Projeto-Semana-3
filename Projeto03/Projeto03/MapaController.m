@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 ARTHUR HENRIQUE VIEIRA DE OLIVEIRA. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "MapaController.h"
 #import "ListaRoles.h"
 #import "CadastrarRoleControllerViewController.h"
@@ -208,11 +209,12 @@
         return nil;
     }
     
-    MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"String"];
+    RoleAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"String"];
     if(!annotationView)
     {
         annotationView = [[RoleAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"String"];
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        annotationView.mapa = self.mapa;
     }
     
     annotationView.canShowCallout = NO;
@@ -293,8 +295,6 @@
 // RoleAnnotationView
 @implementation RoleAnnotationView
 
-
-
 - (id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
@@ -313,9 +313,43 @@
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(-tamanho.x / 2, 40, tamanho.x, tamanho.y)];
     
-    view.backgroundColor = [UIColor whiteColor];
+    view.backgroundColor = [UIColor whiteColor ];
+    view.layer.cornerRadius = 10;
+    view.layer.masksToBounds = YES;
+    view.layer.borderColor = [UIColor colorWithRed:211.0/255.0 green:211.0/255.0 blue:211.0/255.0 alpha:1.0].CGColor;
+    view.layer.borderWidth = 1.5f;
+    
+    
+    //Colocando o label da rua
+    RoleAnnotation *ann = self.annotation;
+    ann.role;
+    
+    UILabel *nomeEndereco = [[UILabel alloc] initWithFrame:CGRectMake(2, 2, view.frame.size.width, 20)];
+    NSString *stringEndereco = [NSString stringWithFormat:@"%@", ann.role.endereco._nome];
+    nomeEndereco.text = stringEndereco;
+    nomeEndereco.numberOfLines = 0;
+    nomeEndereco.sizeToFit;
+    [view addSubview:nomeEndereco];
+    
+    
+    UIButton *btnRota = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [btnRota setTitle:@"Calcular Rota" forState:UIControlStateNormal];
+    [btnRota setFrame:CGRectMake(view.frame.size.width/2 - 50, view.frame.size.height - 20, 100, 20)];
+    [view addSubview:btnRota];
     
     self.viewAnotacao = view;
+}
+
+- (void)calcularRota:(id)sender
+{
+    if ([[self mapa] inicio] == Nil)
+    {
+        MKPlacemark *placeInicio = [[MKPlacemark alloc] initWithCoordinate:[[[[self mapa] mapa] userLocation] coordinate] addressDictionary:nil];
+        
+        [[self mapa] setInicio:[[MKMapItem alloc] initWithPlacemark:placeInicio]];
+    }
+    
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
