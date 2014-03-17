@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListaRolesDelegate.h"
+#import "Role.h"
 
-@interface LIstaDeRoleController : UITableViewController
+@interface ListaDeRoleController : UITableViewController <ListaRolesDelegate>
+
 
 @end

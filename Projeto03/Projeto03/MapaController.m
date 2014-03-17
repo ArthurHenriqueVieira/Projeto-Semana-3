@@ -59,7 +59,7 @@
         
         UILongPressGestureRecognizer *segurar = [[UILongPressGestureRecognizer alloc]
                                               initWithTarget:self action:@selector(colocarPinch:)];
-        [segurar setMinimumPressDuration:1.0];;  //tempo que tem que ficar com o dedo na tela
+        [segurar setMinimumPressDuration:1.0];  //tempo que tem que ficar com o dedo na tela
         [[self mapa] addGestureRecognizer:segurar];
     }
 }

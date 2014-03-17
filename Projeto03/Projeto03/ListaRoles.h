@@ -30,13 +30,13 @@
 - (Usuario*)getUsuarioPorId:(int)idUsuario;
 - (int)atualizarUsuario:(Usuario*)usuario;
 
-
 // Gerenciamento de Roles
 - (int)adicionarRoleDo:(Usuario *)dono noEndereco:(NSString *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico;
 - (bool)removerRole:(int)idRole;
 - (Role*)getRolePorId:(int)idRole;
 - (int)atualizarRole:(Role*)role;
 - (NSArray *)rolesDistando:(double)metros doLocal:(CLLocationCoordinate2D)origem;
+- (NSArray *)todosOsRoles;
 
 
 // Gerenciamento de delegates

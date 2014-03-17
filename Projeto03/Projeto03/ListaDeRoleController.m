@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 ARTHUR HENRIQUE VIEIRA DE OLIVEIRA. All rights reserved.
 //
 
-#import "LIstaDeRoleController.h"
+#import "ListaDeRoleController.h"
 
-@interface LIstaDeRoleController ()
+@interface ListaDeRoleController ()
 
 @end
 
-@implementation LIstaDeRoleController
+@implementation ListaDeRoleController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [ListaRoles lista];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

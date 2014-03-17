@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21B7573A18CF3D2D006A9986 /* LIstaDeRoleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B7573918CF3D2D006A9986 /* LIstaDeRoleController.m */; };
+		21B7573A18CF3D2D006A9986 /* ListaDeRoleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B7573918CF3D2D006A9986 /* ListaDeRoleController.m */; };
 		21B7573D18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B7573C18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m */; };
 		5E3CD03C18CE3EFB00A751DF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3CD03B18CE3EFB00A751DF /* MapKit.framework */; };
 		5E3CD03F18CE500700A751DF /* MapaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CD03E18CE500700A751DF /* MapaController.m */; };
@@ -43,8 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		21B7573818CF3D2D006A9986 /* LIstaDeRoleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIstaDeRoleController.h; sourceTree = "<group>"; };
-		21B7573918CF3D2D006A9986 /* LIstaDeRoleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIstaDeRoleController.m; sourceTree = "<group>"; };
+		21B7573818CF3D2D006A9986 /* ListaDeRoleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaDeRoleController.h; sourceTree = "<group>"; };
+		21B7573918CF3D2D006A9986 /* ListaDeRoleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaDeRoleController.m; sourceTree = "<group>"; };
 		21B7573B18CF3D8F006A9986 /* CadastrarRoleControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastrarRoleControllerViewController.h; sourceTree = "<group>"; };
 		21B7573C18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastrarRoleControllerViewController.m; sourceTree = "<group>"; };
 		5E3CD03B18CE3EFB00A751DF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -196,8 +196,8 @@
 				5E3D6E2518CE35BC00FE7BDE /* MenuPrincipalController.m */,
 				5E3CD03D18CE500700A751DF /* MapaController.h */,
 				5E3CD03E18CE500700A751DF /* MapaController.m */,
-				21B7573818CF3D2D006A9986 /* LIstaDeRoleController.h */,
-				21B7573918CF3D2D006A9986 /* LIstaDeRoleController.m */,
+				21B7573818CF3D2D006A9986 /* ListaDeRoleController.h */,
+				21B7573918CF3D2D006A9986 /* ListaDeRoleController.m */,
 				21B7573B18CF3D8F006A9986 /* CadastrarRoleControllerViewController.h */,
 				21B7573C18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m */,
 			);
@@ -314,7 +314,7 @@
 				5E3D6E2618CE35BC00FE7BDE /* MenuPrincipalController.m in Sources */,
 				5E9BD1A918CF951100FF7BF5 /* Endereco.m in Sources */,
 				5E3D6E1D18CE35BC00FE7BDE /* AppDelegate.m in Sources */,
-				21B7573A18CF3D2D006A9986 /* LIstaDeRoleController.m in Sources */,
+				21B7573A18CF3D2D006A9986 /* ListaDeRoleController.m in Sources */,
 				5E9BD1A618CF878B00FF7BF5 /* ListaRoles.m in Sources */,
 				5E3CD03F18CE500700A751DF /* MapaController.m in Sources */,
 				5E3D6E1918CE35BC00FE7BDE /* main.m in Sources */,

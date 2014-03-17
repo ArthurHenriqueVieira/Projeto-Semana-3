@@ -179,7 +179,7 @@
     {
         if(role._id == idRole)
         {
-            return role;
+            return [role clonar];
         }
     }
     
@@ -217,6 +217,17 @@
     return roles;
 }
 
+- (NSArray*)todosOsRoles
+{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    for(Role *role in listaDeRoles)
+    {
+        [array addObject:[role clonar]];
+    }
+    
+    return array;
+}
 
 // Gerenciamento de delegates
 - (void)registrarDelegate:(id<ListaRolesDelegate>)delegate
