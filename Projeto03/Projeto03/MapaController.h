@@ -43,4 +43,6 @@
 
 @interface RoleAnnotationView : MKPinAnnotationView
 
+@property UIView *viewAnotacao;
+
 @end

@@ -23,7 +23,8 @@
         InfoDeRoleController *controller = segue.destinationViewController;
         
         controller.veioDeMapa = YES;
-        [controller mostrarRole:self.roleParaMostrar];*/
+        [controller mostrarRole:self.roleParaMostrar];
+        */
     }
 }
 
@@ -32,7 +33,7 @@
     [super viewDidLoad];
     
     // Inicializando o mapa e o colocando na view
-    [self setMapa:[[MKMapView alloc] initWithFrame:CGRectMake(0, 30, 400, 600)]];
+    [self setMapa:[[MKMapView alloc] initWithFrame:CGRectMake(0, 30, self.view.frame.size.width, self.view.frame.size.height)]];
     [[self view] addSubview:[self mapa]];
     
     // Mostrando a localização do usuário
@@ -188,13 +189,12 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     // Centraliza o mapa ao redor da posição atual do usuário
-    [[self mapa] setCenterCoordinate:[[userLocation location] coordinate]];
+    [[self mapa] setCenterCoordinate:[[userLocation location] coordinate] animated:YES];
     
     // Dá um zoom na região atual do usuário
     self.mapa.region = MKCoordinateRegionMake(userLocation.location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
     
     self.localizacaoAtual = userLocation.location.coordinate;
-    
     
     [self atualizarEventosProximos];
 }
@@ -216,15 +216,56 @@
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     
+    annotationView.canShowCallout = NO;
+    annotationView.centerOffset = CGPointMake(1000, 1000);
     annotationView.enabled = YES;
-    annotationView.canShowCallout = YES;
     
     return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    if(![view.annotation isKindOfClass:[MKUserLocation class]])
+    {
+        /*
+        CGSize  calloutSize = CGSizeMake(100.0, 80.0);
+        UIView *calloutView = [[UIView alloc] initWithFrame:CGRectMake(0, calloutSize.height, calloutSize.width, calloutSize.height)];
+        calloutView.backgroundColor = [UIColor whiteColor];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake(5.0, 5.0, calloutSize.width - 10.0, calloutSize.height - 10.0);
+        [button setTitle:@"OK" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(checkin) forControlEvents:UIControlEventTouchUpInside];
+        [calloutView addSubview:button];
+        [view.superview addSubview:calloutView];
+        */
+    }
+    
+    CGPoint point = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
+    CLLocationCoordinate2D locCoord = [[self mapa] convertPoint:point toCoordinateFromView:[self mapa]];
+    
+    point = [self.mapa convertCoordinate:[view.annotation coordinate] toPointToView:self.mapa];
+    
+    CLLocationCoordinate2D locacao = self.mapa.centerCoordinate;
+    
+    [self.mapa setCenterCoordinate:[view.annotation coordinate]];
+    
+    CLLocationCoordinate2D coordenada = [self.mapa convertPoint:CGPointMake(self.mapa.frame.size.width / 2, self.mapa.frame.size.height / 1.21f) toCoordinateFromView:self.mapa];
+    
+//    [self.mapa setCenterCoordinate:coordenada];
+    
+    [self.mapa setCenterCoordinate:locacao];
+    
+    [self.mapa setCenterCoordinate:coordenada animated:YES];
+    
+    // Dá um zoom na região atual do usuário
+    //self.mapa.region = MKCoordinateRegionMake([view.annotation coordinate], MKCoordinateSpanMake(0.1, 0.1));
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     RoleAnnotation *annotation = view.annotation;
+    
+    
     
     self.roleParaMostrar = annotation.role;
     
@@ -252,5 +293,57 @@
 
 // RoleAnnotationView
 @implementation RoleAnnotationView
+
+
+
+- (id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+    
+    if(self)
+    {
+        [self criarViewAnotacao];
+    }
+    
+    return self;
+}
+
+- (void)criarViewAnotacao
+{
+    CGPoint tamanho = CGPointMake(250, 300);
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(-tamanho.x / 2, 40, tamanho.x, tamanho.y)];
+    
+    view.backgroundColor = [UIColor whiteColor];
+    
+    self.viewAnotacao = view;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    
+    if(selected)
+    {
+        //Add your custom view to self...
+        UIButton *botao = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        [botao setFrame:CGRectMake(0, 0, 100, 100)];
+        [botao setTitle:@"HEUHEUHEUHE" forState:UIControlStateNormal];
+        
+        CGPoint tamanho = CGPointMake(250, 300);
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(-tamanho.x / 2, 40, tamanho.x, tamanho.y)];
+        
+        view.backgroundColor = [UIColor whiteColor];
+        
+        [self addSubview:self.viewAnotacao];
+    }
+    else
+    {
+        //Remove your custom view...
+        [self.viewAnotacao removeFromSuperview];
+    }
+}
 
 @end
