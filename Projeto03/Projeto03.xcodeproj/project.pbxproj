@@ -202,8 +202,8 @@
 				21B7573818CF3D2D006A9986 /* LIstaDeRoleController.h */,
 				21B7573918CF3D2D006A9986 /* LIstaDeRoleController.m */,
 				21B7573B18CF3D8F006A9986 /* CadastrarRoleControllerViewController.h */,
-				21B7573C18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m */,
 				21B7573E18CF3DEA006A9986 /* InfoDeRoleController.h */,
+				21B7573C18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m */,
 				21B7573F18CF3DEA006A9986 /* InfoDeRoleController.m */,
 			);
 			name = ViewControllers;
