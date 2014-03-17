@@ -8,6 +8,7 @@
 
 #import "MenuPrincipalController.h"
 #import "MapaController.h"
+#import "CadastrarRoleControllerViewController.h"
 
 @interface MenuPrincipalController ()
 
@@ -17,10 +18,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if(segue.identifier.length > 0 && [segue.identifier compare:@"menuPrincipal"] == NSOrderedSame)
+    if([segue.identifier isEqualToString:@"menuPrincipal"])
     {
         // Troca o modo do mapa para localização de roles
         [segue.destinationViewController setModoAtual:MODO_LOCALIZAR_ROLES];
+    }
+    else if([segue.identifier isEqualToString:@"criarRole"])
+    {
+        [segue.destinationViewController setModoAtual:MODO_CRIAR_ROLE];
     }
 }
 

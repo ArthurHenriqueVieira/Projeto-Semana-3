@@ -15,13 +15,21 @@
 
 @implementation CadastrarRoleControllerViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)viewDidLoad
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    
+    self.imagemAvatar.layer.borderColor = 0;
+    self.imagemAvatar.layer.borderWidth = 1;
+    
+    self.textoDescricao.layer.borderColor = 0;
+    self.textoDescricao.layer.borderWidth = 1;
+    
+    self.containerDataRole.hidden = YES;
+    
+    // Atualiza a data
+    [self atualizarData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -65,21 +73,23 @@
     [self.botaoData setTitle:[NSString stringWithFormat:@"%@", self.dataRole.date] forState:UIControlStateNormal];
 }
 
-- (void)viewDidLoad
+- (void)exibirRole:(Role*)role
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self.textoDescricao setText:role.descricao];
+    [self.dataRole setDate:role.data];
     
-    self.imagemAvatar.layer.borderColor = 0;
-    self.imagemAvatar.layer.borderWidth = 1;
-    
-    self.textoDescricao.layer.borderColor = 0;
-    self.textoDescricao.layer.borderWidth = 1;
-    
-    self.containerDataRole.hidden = YES;
-    
-    // Atualiza a data
     [self atualizarData];
+    
+    self.textoDescricao.editable = NO;
+}
+
+- (void)editarRole:(Role*)role
+{
+    roleAEditar = role;
+    
+    [self exibirRole:role];
+    
+    self.textoDescricao.editable = YES;
 }
 
 - (void)didReceiveMemoryWarning

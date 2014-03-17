@@ -8,6 +8,7 @@
 
 #import "MapaController.h"
 #import "ListaRoles.h"
+#import "CadastrarRoleControllerViewController.h"
 
 @interface MapaController ()
 
@@ -19,12 +20,10 @@
 {
     if([segue.identifier isEqualToString:@"verInformacoes"])
     {
-        /*
-        InfoDeRoleController *controller = segue.destinationViewController;
+        CadastrarRoleControllerViewController *controller = segue.destinationViewController;
         
         controller.veioDeMapa = YES;
-        [controller mostrarRole:self.roleParaMostrar];
-        */
+        [controller exibirRole:self.roleParaMostrar];
     }
 }
 

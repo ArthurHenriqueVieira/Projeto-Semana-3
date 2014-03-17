@@ -277,7 +277,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Awg-cn-jF4"/>
         <segue reference="Rru-nw-Wlf"/>
+        <segue reference="Awg-cn-jF4"/>
     </inferredMetricsTieBreakers>
 </document>

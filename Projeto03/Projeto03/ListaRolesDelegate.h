@@ -13,6 +13,8 @@
 // Delegate que recebe eventos da classe ListaRoles
 @protocol ListaRolesDelegate <NSObject>
 
+@optional
+
 - (void)listaRole:(ListaRoles*)lista atualizouEnderecoDe:(Role*)role;
 - (void)listaRole:(ListaRoles*)lista adicionouRole:(Role*)role;
 
