@@ -111,7 +111,6 @@
 - (int)adicionarRoleDo:(Usuario *)dono noEndereco:(NSString *)endereco comDescricao:(NSString *)descricao naData:(NSDate *)data comConvidados:(NSMutableArray *)convidados sendoPublico:(BOOL)publico
 {
     Role *novoRole = [[Role alloc] init];
-    novoRole.dono = dono;
     
     Endereco *end = [[Endereco alloc] init];
     
@@ -138,6 +137,9 @@
              }
          }
      }];
+    
+    
+    novoRole.dono = dono;
     
     novoRole.endereco = end;
     novoRole.descricao = descricao;

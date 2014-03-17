@@ -10,11 +10,21 @@
 
 @implementation Role
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.convidados = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (Role*)clonar
 {
     Role *novoRole = [[Role alloc] init];
     
     novoRole.dono = self.dono;
+    novoRole.descricao = self.descricao;
     novoRole.endereco = self.endereco;
     novoRole.data = self.data;
     novoRole.convidados = self.convidados;
@@ -27,6 +37,7 @@
 - (void)copiarCamposDe:(Role*)role
 {
     self.dono = role.dono;
+    self.descricao = role.descricao;
     self.endereco = role.endereco;
     self.data = role.data;
     self.convidados = role.convidados;
