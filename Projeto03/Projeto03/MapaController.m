@@ -87,6 +87,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Centraliza o mapa no usuário
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    // Centraliza o mapa ao redor da posição atual do usuário
+    [[self mapa] setCenterCoordinate:[[userLocation location] coordinate]];
+    
+    // Dá um zoom na região atual do usuário
+    self.mapa.region = MKCoordinateRegionMake(userLocation.location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+    
+    self.localizacaoAtual = userLocation.location.coordinate;
+    
+    
+    [self atualizarEventosProximos];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     for (UIView *view in [[self view] subviews])
@@ -184,20 +199,6 @@
     [self atualizarEventosProximos];
 }
 
-// Centraliza o mapa no usuário
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
-    // Centraliza o mapa ao redor da posição atual do usuário
-    [[self mapa] setCenterCoordinate:[[userLocation location] coordinate]];
-    
-    // Dá um zoom na região atual do usuário
-    self.mapa.region = MKCoordinateRegionMake(userLocation.location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
-    
-    self.localizacaoAtual = userLocation.location.coordinate;
-    
-    
-    [self atualizarEventosProximos];
-}
 
 // Tentando pegar o Pin
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
