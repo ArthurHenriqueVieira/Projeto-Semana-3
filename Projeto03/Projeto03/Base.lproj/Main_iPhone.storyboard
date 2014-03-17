@@ -20,6 +20,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Vvk-Gd-BV5" kind="push" identifier="verInformacoes" id="96z-vu-cFB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -259,6 +262,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Rru-nw-Wlf"/>
-        <segue reference="Awg-cn-jF4"/>
+        <segue reference="96z-vu-cFB"/>
     </inferredMetricsTieBreakers>
 </document>
