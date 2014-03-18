@@ -20,8 +20,6 @@
 
 @property (strong, nonatomic) MKMapView *mapa;
 @property (strong, nonatomic) UITextField *endereco;
-@property (strong, nonatomic) MKMapItem *inicio;
-@property (strong, nonatomic) MKMapItem *destino;
 
 @property bool adicionouRoles;
 @property CLLocationCoordinate2D localizacaoAtual;
@@ -46,6 +44,5 @@
 @interface RoleAnnotationView : MKPinAnnotationView
 
 @property UIView *viewAnotacao;
-@property (weak) MapaController *mapa;
 
 @end

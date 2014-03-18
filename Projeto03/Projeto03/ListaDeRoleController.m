@@ -8,7 +8,6 @@
 
 #import "ListaDeRoleController.h"
 #import "ListaRoles.h"
-#import "CadastrarRoleControllerViewController.h"
 
 @interface ListaDeRoleController ()
 
@@ -44,20 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"verInformacoes"])
-    {
-        CadastrarRoleControllerViewController *controller = segue.destinationViewController;
-        
-        
-        self.roleSelecionado = self.roles[[self.tableView indexPathForSelectedRow].row];
-        
-        controller.veioDeMapa = YES;
-        [controller exibirRole:self.roleSelecionado];
-    }
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -85,7 +70,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.roleSelecionado = self.roles[indexPath.row];
+    
 }
 
 /*
