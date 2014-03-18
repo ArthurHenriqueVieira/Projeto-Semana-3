@@ -12,6 +12,8 @@
 
 @interface ListaDeRoleController : UITableViewController <ListaRolesDelegate>
 
+@property Role *roleSelecionado;
+
 @property NSArray *roles;
 
 @end
