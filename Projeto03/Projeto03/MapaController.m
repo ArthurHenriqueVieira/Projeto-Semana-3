@@ -322,10 +322,10 @@
     
     
     //Colocando o label da rua
-    RoleAnnotation *ann = self.annotation;
+    [self setAnn:[self annotation]];
     
     UILabel *nomeEndereco = [[UILabel alloc] initWithFrame:CGRectMake(2, 2, view.frame.size.width, 20)];
-    NSString *stringEndereco = [NSString stringWithFormat:@"%@", ann.role.endereco._nome];
+    NSString *stringEndereco = [NSString stringWithFormat:@"%@", self.ann.role.endereco._nome];
     nomeEndereco.text = stringEndereco;
     nomeEndereco.numberOfLines = 0;
     [nomeEndereco sizeToFit];
@@ -335,6 +335,7 @@
     UIButton *btnRota = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [btnRota setTitle:@"Calcular Rota" forState:UIControlStateNormal];
     [btnRota setFrame:CGRectMake(view.frame.size.width/2 - 50, view.frame.size.height - 20, 100, 20)];
+    [btnRota addTarget:self action:@selector(calcularRota:) forControlEvents:UIControlEventTouchDown];
     [view addSubview:btnRota];
     
     self.viewAnotacao = view;
@@ -347,9 +348,41 @@
         MKPlacemark *placeInicio = [[MKPlacemark alloc] initWithCoordinate:[[[[self mapa] mapa] userLocation] coordinate] addressDictionary:nil];
         
         [[self mapa] setInicio:[[MKMapItem alloc] initWithPlacemark:placeInicio]];
+        
+        MKPlacemark *placeDestino = [[MKPlacemark alloc] initWithCoordinate:self.ann.role.endereco._coord addressDictionary:Nil];
+        
+        [[self mapa] setDestino:[[MKMapItem alloc] initWithPlacemark:placeDestino]];
     }
     
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    [request setSource:[[self mapa] inicio]];
+    [request setDestination:[[self mapa] destino]];
+    [request setRequestsAlternateRoutes:NO];
+    
+    MKDirections *direcoes = [[MKDirections alloc] init];
+    [direcoes calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error)
+    {
+        if (error)
+        {
+            NSLog(@"Erro ao traçar caminho");
+        }else
+        {
+            [self mostraRota:response];
+        }
+    }];
+}
+
+- (void)mostraRota:(MKDirectionsResponse *)response
+{
+    for (MKRoute *rota in response.routes)
+    {
+        [[[self mapa] mapa] addOverlay:rota.polyline level:MKOverlayLevelAboveRoads];
+        
+        for (MKRouteStep *step in rota.steps)
+        {
+            NSLog(@"%@", step.instructions);
+        }
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

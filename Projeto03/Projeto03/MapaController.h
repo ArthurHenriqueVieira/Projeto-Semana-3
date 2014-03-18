@@ -22,6 +22,7 @@
 @property (strong, nonatomic) UITextField *endereco;
 @property (strong, nonatomic) MKMapItem *inicio;
 @property (strong, nonatomic) MKMapItem *destino;
+@property (strong, nonatomic) MKPolylineRenderer *renderer;
 
 @property bool adicionouRoles;
 @property CLLocationCoordinate2D localizacaoAtual;
@@ -47,5 +48,6 @@
 
 @property UIView *viewAnotacao;
 @property (weak) MapaController *mapa;
+@property (weak) RoleAnnotation *ann;
 
 @end
