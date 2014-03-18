@@ -268,24 +268,30 @@
         MKPlacemark *placeDestino = [[MKPlacemark alloc] initWithCoordinate:destino addressDictionary:Nil];
         
         [self setDestino:[[MKMapItem alloc] initWithPlacemark:placeDestino]];
+        
+        MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+        [request setSource:[self inicio]];
+        [request setDestination:[self destino]];
+        [request setRequestsAlternateRoutes:NO];
+        
+        MKDirections *direcoes = [[MKDirections alloc] initWithRequest:request];
+        [direcoes calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error)
+         {
+             if (error)
+             {
+                 NSLog(@"Erro ao traçar caminho");
+             }else
+             {
+                 [self mostraRota:response];
+             }
+         }];
     }
-    
-    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
-    [request setSource:[self inicio]];
-    [request setDestination:[self destino]];
-    [request setRequestsAlternateRoutes:NO];
-    
-    MKDirections *direcoes = [[MKDirections alloc] init];
-    [direcoes calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error)
-     {
-         if (error)
-         {
-             NSLog(@"Erro ao traçar caminho");
-         }else
-         {
-             [self mostraRota:response];
-         }
-     }];
+    if ([self inicio] != Nil && [self destino] != nil)
+    {
+        [self setInicio:nil];
+        [self setDestino:nil];
+        [[self mapa] removeOverlays:[[self mapa] overlays]];
+    }
 }
 
 - (void)mostraRota:(MKDirectionsResponse *)response
