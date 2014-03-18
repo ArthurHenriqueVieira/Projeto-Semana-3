@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     // Inicializando o mapa e o colocando na view
-    [self setMapa:[[MKMapView alloc] initWithFrame:CGRectMake(0, 30, self.view.frame.size.width, self.view.frame.size.height)]];
+    [self setMapa:[[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)]];
     [[self view] addSubview:[self mapa]];
     
     // Mostrando a localização do usuário
@@ -99,7 +99,7 @@
 {
     [textField resignFirstResponder];
     [self marcarPosicaoNoMapa];
-    
+
     return true;
 }
 
@@ -134,8 +134,6 @@
         {
             // Criando a localização
             CLLocationCoordinate2D local;
-            // Criando o ponto
-            MKPointAnnotation *ponto = [[MKPointAnnotation alloc] init];
             
             // Criando a latitude e a longitude
             NSString *_latitude = [NSString stringWithFormat:@"%f", [[placemark location] coordinate].latitude];
@@ -143,20 +141,7 @@
             local.latitude = [_latitude doubleValue];
             local.longitude = [_longitude doubleValue];
             
-            // Zoom no ponto
-            MKCoordinateRegion regiao;
-            regiao.center = local;
-            ponto.coordinate = local;
-            
-            // Define o titulo da marcação
-            [ponto setTitle:[[self endereco] text]];
-            
-            // Adiciona o zoom e a marcação
-            [[self mapa] setRegion:regiao];
-            [[self mapa] addAnnotation:ponto];
-            
-            // Limpa o texto
-            [[self endereco] setText:@""];
+            [self calcularRota:local];
         }
     }];
 }
@@ -271,6 +256,60 @@
     [self performSegueWithIdentifier:@"verInformacoes" sender:self];
 }
 
+// Metodos para calcular a rota
+- (void)calcularRota:(CLLocationCoordinate2D)destino
+{
+    if ([self inicio] == Nil)
+    {
+        MKPlacemark *placeInicio = [[MKPlacemark alloc] initWithCoordinate:[[[self mapa] userLocation] coordinate] addressDictionary:nil];
+        
+        [self setInicio:[[MKMapItem alloc] initWithPlacemark:placeInicio]];
+        
+        MKPlacemark *placeDestino = [[MKPlacemark alloc] initWithCoordinate:destino addressDictionary:Nil];
+        
+        [self setDestino:[[MKMapItem alloc] initWithPlacemark:placeDestino]];
+    }
+    
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    [request setSource:[self inicio]];
+    [request setDestination:[self destino]];
+    [request setRequestsAlternateRoutes:NO];
+    
+    MKDirections *direcoes = [[MKDirections alloc] init];
+    [direcoes calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error)
+     {
+         if (error)
+         {
+             NSLog(@"Erro ao traçar caminho");
+         }else
+         {
+             [self mostraRota:response];
+         }
+     }];
+}
+
+- (void)mostraRota:(MKDirectionsResponse *)response
+{
+    for (MKRoute *rota in response.routes)
+    {
+        [[self mapa] addOverlay:rota.polyline level:MKOverlayLevelAboveRoads];
+        
+        for (MKRouteStep *step in rota.steps)
+        {
+            NSLog(@"%@", step.instructions);
+        }
+    }
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    [self setRenderer:[[MKPolylineRenderer alloc] initWithOverlay:overlay]];
+    [[self renderer] setStrokeColor:[UIColor blueColor]];
+    [[self renderer] setLineWidth:5.0];
+    
+    return [self renderer];
+}
+
 @end
 
 
@@ -339,50 +378,6 @@
     [view addSubview:btnRota];
     
     self.viewAnotacao = view;
-}
-
-- (void)calcularRota:(id)sender
-{
-    if ([[self mapa] inicio] == Nil)
-    {
-        MKPlacemark *placeInicio = [[MKPlacemark alloc] initWithCoordinate:[[[[self mapa] mapa] userLocation] coordinate] addressDictionary:nil];
-        
-        [[self mapa] setInicio:[[MKMapItem alloc] initWithPlacemark:placeInicio]];
-        
-        MKPlacemark *placeDestino = [[MKPlacemark alloc] initWithCoordinate:self.ann.role.endereco._coord addressDictionary:Nil];
-        
-        [[self mapa] setDestino:[[MKMapItem alloc] initWithPlacemark:placeDestino]];
-    }
-    
-    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
-    [request setSource:[[self mapa] inicio]];
-    [request setDestination:[[self mapa] destino]];
-    [request setRequestsAlternateRoutes:NO];
-    
-    MKDirections *direcoes = [[MKDirections alloc] init];
-    [direcoes calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error)
-    {
-        if (error)
-        {
-            NSLog(@"Erro ao traçar caminho");
-        }else
-        {
-            [self mostraRota:response];
-        }
-    }];
-}
-
-- (void)mostraRota:(MKDirectionsResponse *)response
-{
-    for (MKRoute *rota in response.routes)
-    {
-        [[[self mapa] mapa] addOverlay:rota.polyline level:MKOverlayLevelAboveRoads];
-        
-        for (MKRouteStep *step in rota.steps)
-        {
-            NSLog(@"%@", step.instructions);
-        }
-    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
