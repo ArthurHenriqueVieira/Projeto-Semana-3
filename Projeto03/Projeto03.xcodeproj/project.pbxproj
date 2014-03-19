@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		21B7573A18CF3D2D006A9986 /* ListaDeRoleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B7573918CF3D2D006A9986 /* ListaDeRoleController.m */; };
 		21B7573D18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B7573C18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m */; };
-		21E7A3A818D8E0D00000AA2A /* 202312__7778__dbl-click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21E7A3A718D8E0D00000AA2A /* 202312__7778__dbl-click.mp3 */; };
 		5E3CD03C18CE3EFB00A751DF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3CD03B18CE3EFB00A751DF /* MapKit.framework */; };
 		5E3CD03F18CE500700A751DF /* MapaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CD03E18CE500700A751DF /* MapaController.m */; };
 		5E3D6E0D18CE35BC00FE7BDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3D6E0C18CE35BC00FE7BDE /* Foundation.framework */; };
@@ -48,7 +47,6 @@
 		21B7573918CF3D2D006A9986 /* ListaDeRoleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaDeRoleController.m; sourceTree = "<group>"; };
 		21B7573B18CF3D8F006A9986 /* CadastrarRoleControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastrarRoleControllerViewController.h; sourceTree = "<group>"; };
 		21B7573C18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastrarRoleControllerViewController.m; sourceTree = "<group>"; };
-		21E7A3A718D8E0D00000AA2A /* 202312__7778__dbl-click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "202312__7778__dbl-click.mp3"; path = "../../../Downloads/202312__7778__dbl-click.mp3"; sourceTree = "<group>"; };
 		5E3CD03B18CE3EFB00A751DF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5E3CD03D18CE500700A751DF /* MapaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapaController.h; sourceTree = "<group>"; };
 		5E3CD03E18CE500700A751DF /* MapaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapaController.m; sourceTree = "<group>"; };
@@ -108,14 +106,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21E7A3A918D8E0D80000AA2A /* Sons */ = {
-			isa = PBXGroup;
-			children = (
-				21E7A3A718D8E0D00000AA2A /* 202312__7778__dbl-click.mp3 */,
-			);
-			name = Sons;
-			sourceTree = "<group>";
-		};
 		5E3D6E0018CE35BC00FE7BDE = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +140,6 @@
 		5E3D6E1218CE35BC00FE7BDE /* Projeto03 */ = {
 			isa = PBXGroup;
 			children = (
-				21E7A3A918D8E0D80000AA2A /* Sons */,
 				B3D3820D18CE4CE300DF2D16 /* ViewControllers */,
 				5E3D6E1B18CE35BC00FE7BDE /* AppDelegate.h */,
 				5E3D6E1C18CE35BC00FE7BDE /* AppDelegate.m */,
@@ -301,7 +290,6 @@
 				5E3D6E2318CE35BC00FE7BDE /* Main_iPad.storyboard in Resources */,
 				5E3D6E2818CE35BC00FE7BDE /* Images.xcassets in Resources */,
 				5E3D6E2018CE35BC00FE7BDE /* Main_iPhone.storyboard in Resources */,
-				21E7A3A818D8E0D00000AA2A /* 202312__7778__dbl-click.mp3 in Resources */,
 				5E3D6E1718CE35BC00FE7BDE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
