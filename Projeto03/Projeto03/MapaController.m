@@ -40,12 +40,33 @@
     // Colocando o delegate no mapa
     [[self mapa] setDelegate:self];
     
+    [self.mapa setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
     // Inicializando o endereço
     [self setEndereco:[[UITextField alloc] initWithFrame:CGRectMake(0, 65, 320, 30)]];
     [[self endereco] setBorderStyle:UITextBorderStyleRoundedRect];
     [[self endereco] setDelegate:self];
     [[self view] addSubview:[self endereco]];
     
+    UIView *mapa = self.mapa;
+    UIView *buscaBar = self.endereco;
+    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(mapa, buscaBar);
+    
+//    NSArray *constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-[mapa(>=100)]-|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
+    
+    NSArray *constraint = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[buscaBar]|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
+    
+    NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[buscaBar]|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
+    
+    [self.view addConstraints:constraint];
+//    [self.view addConstraints:constraint2];
+    
+    
+    NSLog(@"%lf x %lf   %lf x %lf", self.mapa.frame.origin.x, self.mapa.frame.origin.y, self.mapa.frame.size.width, self.mapa.frame.size.height);
+    
+    //[self.view addConstraints:constraintsArray];
+    
+    // Sem documentação
     self.adicionouRoles = NO;
     
     // Prepara a view dependendo do modo de manipulação de dados
@@ -56,7 +77,6 @@
     }
     else if(self.modoAtual == MODO_SELECIONAR_LOCAL)
     {
-        
         UILongPressGestureRecognizer *segurar = [[UILongPressGestureRecognizer alloc]
                                               initWithTarget:self action:@selector(colocarPinch:)];
         [segurar setMinimumPressDuration:1.0];  //tempo que tem que ficar com o dedo na tela
