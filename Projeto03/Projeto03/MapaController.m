@@ -193,10 +193,18 @@
         return nil;
     }
     
-    MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"String"];
+    MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"Role"];
     if(!annotationView)
     {
-        annotationView = [[RoleAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"String"];
+        if([annotation class] == [RoleAnnotation class])
+        {
+            annotationView = [[RoleAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Role"];
+        }
+        else
+        {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Role"];
+        }
+        
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     
@@ -369,8 +377,11 @@
     //Colocando o label da rua
     [self setAnn:[self annotation]];
     
+    NSString *stringEndereco = nil;
+    
     UILabel *nomeEndereco = [[UILabel alloc] initWithFrame:CGRectMake(2, 2, view.frame.size.width, 20)];
-    NSString *stringEndereco = [NSString stringWithFormat:@"%@", self.ann.role.endereco._nome];
+    
+    stringEndereco = [NSString stringWithFormat:@"%@", self.ann.role.endereco._nome];
     nomeEndereco.text = stringEndereco;
     nomeEndereco.numberOfLines = 0;
     [nomeEndereco sizeToFit];
