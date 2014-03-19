@@ -50,7 +50,6 @@
     {
         CadastrarRoleControllerViewController *controller = segue.destinationViewController;
         
-        
         self.roleSelecionado = self.roles[[self.tableView indexPathForSelectedRow].row];
         
         controller.veioDeMapa = YES;

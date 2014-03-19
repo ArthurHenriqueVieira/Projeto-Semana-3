@@ -30,6 +30,11 @@
     
     // Atualiza a data
     [self atualizarData];
+    
+    if(roleAtual != nil)
+    {
+        [self exibirRole:roleAtual];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -75,6 +80,8 @@
 
 - (void)exibirRole:(Role*)role
 {
+    roleAtual = role;
+    
     [self.textoDescricao setText:role.descricao];
     [self.dataRole setDate:role.data];
     
@@ -85,11 +92,16 @@
 
 - (void)editarRole:(Role*)role
 {
-    roleAEditar = role;
+    roleAtual = role;
     
     [self exibirRole:role];
     
     self.textoDescricao.editable = YES;
+}
+
+- (void)criarRole
+{
+    roleAtual = nil;
 }
 
 - (void)didReceiveMemoryWarning

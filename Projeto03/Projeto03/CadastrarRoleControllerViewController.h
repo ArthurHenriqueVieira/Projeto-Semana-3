@@ -15,7 +15,7 @@
 
 @interface CadastrarRoleControllerViewController : MenuPrincipalController
 {
-    Role *roleAEditar;
+    Role *roleAtual;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagemAvatar;
