@@ -57,20 +57,42 @@
     
     if(touch.view != self.containerDataRole && touch.view != self.dataRole)
     {
-        self.containerDataRole.hidden = YES;
-        
         [self atualizarData];
     }
 }
 
 - (IBAction)botaoDataTap:(id)sender
 {
-    self.containerDataRole.hidden = !self.containerDataRole.hidden;
+    [self mostrarEsconderDatePicker];
     
     if(self.containerDataRole.hidden == YES)
     {
         [self atualizarData];
     }
+}
+
+- (void)mostrarEsconderDatePicker
+{
+    if(self.containerDataRole.hidden)
+    {
+        [self mostrarDatePicker];
+    }
+    else
+    {
+        [self esconderDatePicker];
+    }
+}
+
+- (void)mostrarDatePicker
+{
+    self.containerDataRole.hidden = NO;
+    self.containerDataRole.userInteractionEnabled = YES;
+}
+
+- (void)esconderDatePicker
+{
+    self.containerDataRole.hidden = YES;
+    self.containerDataRole.userInteractionEnabled = NO;
 }
 
 - (void)atualizarData
