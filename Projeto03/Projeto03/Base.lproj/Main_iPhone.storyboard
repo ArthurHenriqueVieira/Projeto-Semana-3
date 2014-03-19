@@ -256,7 +256,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <view key="view" contentMode="scaleToFill" id="pU9-aC-7e2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hnu-ij-ohd">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hnu-ij-ohd" firstAttribute="top" secondItem="j02-3A-PQs" secondAttribute="bottom" id="O3g-4Q-pxb"/>
+                            <constraint firstItem="Hnu-ij-ohd" firstAttribute="leading" secondItem="pU9-aC-7e2" secondAttribute="leading" id="aRB-hN-f8c"/>
+                            <constraint firstItem="TMw-cf-vE6" firstAttribute="top" secondItem="Hnu-ij-ohd" secondAttribute="bottom" id="gvh-py-zw5"/>
+                            <constraint firstAttribute="trailing" secondItem="Hnu-ij-ohd" secondAttribute="trailing" id="ofM-At-QS8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iXr-J4-J6p">
                         <nil key="title"/>
@@ -304,7 +317,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="4Yf-tS-atY"/>
-        <segue reference="QrQ-b1-ldz"/>
+        <segue reference="Rru-nw-Wlf"/>
+        <segue reference="Awg-cn-jF4"/>
     </inferredMetricsTieBreakers>
 </document>
