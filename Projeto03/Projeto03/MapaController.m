@@ -72,13 +72,16 @@
 
 - (void)colocarPinch:(UILongPressGestureRecognizer *)gesture
 {
-    CGPoint point = [gesture locationInView:[self mapa]];
-    CLLocationCoordinate2D locCoord = [[self mapa] convertPoint:point toCoordinateFromView:[self mapa]];
-    MKPointAnnotation *ponto = [[MKPointAnnotation alloc] init];
-    
-    [ponto setCoordinate:locCoord];
-    
-    [[self mapa] addAnnotation:ponto];
+    if(gesture.state == UIGestureRecognizerStateBegan)
+    {
+        CGPoint point = [gesture locationInView:[self mapa]];
+        CLLocationCoordinate2D locCoord = [[self mapa] convertPoint:point toCoordinateFromView:[self mapa]];
+        MKPointAnnotation *ponto = [[MKPointAnnotation alloc] init];
+        
+        [ponto setCoordinate:locCoord];
+        
+        [[self mapa] addAnnotation:ponto];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -251,6 +254,24 @@
     
     // Dá um zoom na região atual do usuário
     //self.mapa.region = MKCoordinateRegionMake([view.annotation coordinate], MKCoordinateSpanMake(0.1, 0.1));
+    
+    if([view class] == [RoleAnnotationView class])
+    {
+        [self criarViewAnotacao:view.annotation];
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    if([view class] == [RoleAnnotationView class])
+    {
+        [self.viewAnotacao removeFromSuperview];
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+{
+    [self.viewAnotacao removeFromSuperview];
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
@@ -300,6 +321,8 @@
         [self setDestino:nil];
         [[self mapa] removeOverlays:[[self mapa] overlays]];
     }
+    
+    [self.viewAnotacao removeFromSuperview];
 }
 
 - (void)mostraRota:(MKDirectionsResponse *)response
@@ -324,6 +347,41 @@
     return [self renderer];
 }
 
+- (void)criarViewAnotacao:(RoleAnnotation*)annotation
+{
+    CGPoint tamanho = CGPointMake(250, 300);
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(self.mapa.frame.size.width/2 - tamanho.x/2, (self.mapa.frame.size.height/2 - tamanho.y/2) + 40, tamanho.x, tamanho.y)];
+    
+    //view.backgroundColor = [UIColor whiteColor];
+    view.backgroundColor = [UIColor whiteColor ];
+    view.layer.cornerRadius = 10;
+    view.layer.masksToBounds = YES;
+    view.layer.borderColor = [UIColor colorWithRed:211.0/255.0 green:211.0/255.0 blue:211.0/255.0 alpha:1.0].CGColor;
+    view.layer.borderWidth = 1.5f;
+    
+    NSString *stringEndereco = nil;
+    
+    UILabel *nomeEndereco = [[UILabel alloc] initWithFrame:CGRectMake(2, 2, view.frame.size.width, 20)];
+    
+    stringEndereco = [NSString stringWithFormat:@"%@", annotation.role.endereco._nome];
+    nomeEndereco.text = stringEndereco;
+    nomeEndereco.numberOfLines = 0;
+    [nomeEndereco sizeToFit];
+    [view addSubview:nomeEndereco];
+    
+    [[self endereco] setText:[[[annotation role] endereco] _nome]];
+    
+    UIButton *btnRota = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [btnRota setTitle:@"Calcular Rota" forState:UIControlStateNormal];
+    [btnRota setFrame:CGRectMake(view.frame.size.width/2 - 50, view.frame.size.height - 20, 100, 20)];
+    [btnRota addTarget:self action:@selector(marcarPosicaoNoMapa) forControlEvents:UIControlEventTouchDown];
+    [view addSubview:btnRota];
+    
+    self.viewAnotacao = view;
+    [[self view] addSubview:view];
+}
+
 @end
 
 
@@ -345,83 +403,5 @@
 
 // RoleAnnotationView
 @implementation RoleAnnotationView
-
-
-
-- (id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
-    
-    if(self)
-    {
-        [self criarViewAnotacao];
-    }
-    
-    return self;
-}
-
-- (void)criarViewAnotacao
-{
-    CGPoint tamanho = CGPointMake(250, 300);
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(-tamanho.x / 2, 40, tamanho.x, tamanho.y)];
-    
-    //view.backgroundColor = [UIColor whiteColor];
-    view.backgroundColor = [UIColor whiteColor ];
-    view.layer.cornerRadius = 10;
-    view.layer.masksToBounds = YES;
-    view.layer.borderColor = [UIColor colorWithRed:211.0/255.0 green:211.0/255.0 blue:211.0/255.0 alpha:1.0].CGColor;
-    view.layer.borderWidth = 1.5f;
-    
-    
-    //Colocando o label da rua
-    [self setAnn:[self annotation]];
-    
-    NSString *stringEndereco = nil;
-    
-    UILabel *nomeEndereco = [[UILabel alloc] initWithFrame:CGRectMake(2, 2, view.frame.size.width, 20)];
-    
-    stringEndereco = [NSString stringWithFormat:@"%@", self.ann.role.endereco._nome];
-    nomeEndereco.text = stringEndereco;
-    nomeEndereco.numberOfLines = 0;
-    [nomeEndereco sizeToFit];
-    [view addSubview:nomeEndereco];
-    
-    
-    UIButton *btnRota = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btnRota setTitle:@"Calcular Rota" forState:UIControlStateNormal];
-    [btnRota setFrame:CGRectMake(view.frame.size.width/2 - 50, view.frame.size.height - 20, 100, 20)];
-    [btnRota addTarget:self action:@selector(calcularRota:) forControlEvents:UIControlEventTouchDown];
-    [view addSubview:btnRota];
-    
-    self.viewAnotacao = view;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-    
-    if(selected)
-    {
-        //Add your custom view to self...
-        UIButton *botao = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        [botao setFrame:CGRectMake(0, 0, 100, 100)];
-        [botao setTitle:@"HEUHEUHEUHE" forState:UIControlStateNormal];
-        
-        CGPoint tamanho = CGPointMake(250, 300);
-        
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(-tamanho.x / 2, 40, tamanho.x, tamanho.y)];
-        
-        view.backgroundColor = [UIColor whiteColor];
-        
-        [self addSubview:self.viewAnotacao];
-    }
-    else
-    {
-        //Remove your custom view...
-        [self.viewAnotacao removeFromSuperview];
-    }
-}
 
 @end
