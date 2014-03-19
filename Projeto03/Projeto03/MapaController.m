@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     // Inicializando o mapa e o colocando na view
-    [self setMapa:[[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)]];
+    [self setMapa:[[MKMapView alloc] initWithFrame:CGRectMake(0, 90, self.view.frame.size.width, self.view.frame.size.height)]];
     [[self view] addSubview:[self mapa]];
     
     // Mostrando a localização do usuário
