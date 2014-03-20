@@ -88,7 +88,18 @@
                                               initWithTarget:self action:@selector(colocarPinch:)];
         [segurar setMinimumPressDuration:1.0];  //tempo que tem que ficar com o dedo na tela
         [[self mapa] addGestureRecognizer:segurar];
+        
+        UIBarButtonItem *criar = [[UIBarButtonItem alloc] initWithTitle:@"Criar" style:UIBarButtonItemStylePlain target:self action:@selector(criarRole)];
+        
+        self.navigationItem.rightBarButtonItem = criar;
     }
+}
+
+- (void)criarRole
+{
+    //NSLog(@"%@", self.presentingViewController);
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
