@@ -52,19 +52,11 @@
     UIView *buscaBar = self.endereco;
     NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(mapa, buscaBar);
     
-//    NSArray *constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-[mapa(>=100)]-|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
-    
-    NSArray *constraint = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[buscaBar]|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
-    
-    NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[buscaBar]|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
+    NSArray *constraint = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[buscaBar]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:viewsDictionary];
     
     [self.view addConstraints:constraint];
-//    [self.view addConstraints:constraint2];
-    
     
     NSLog(@"%lf x %lf   %lf x %lf", self.mapa.frame.origin.x, self.mapa.frame.origin.y, self.mapa.frame.size.width, self.mapa.frame.size.height);
-    
-    //[self.view addConstraints:constraintsArray];
     
     // Sem documentação
     self.adicionouRoles = NO;
@@ -88,7 +80,51 @@
                                               initWithTarget:self action:@selector(colocarPinch:)];
         [segurar setMinimumPressDuration:1.0];  //tempo que tem que ficar com o dedo na tela
         [[self mapa] addGestureRecognizer:segurar];
+        
+        
+        // Adiciona um navigation bar na view
+        UINavigationBar *bar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64.0)];
+        bar.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:@"Selecionar Endereço"];
+        navItem.hidesBackButton = NO;
+        [navItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Voltar" style:UIBarButtonItemStylePlain target:self action:@selector(voltar)]];
+        
+        [bar pushNavigationItem:navItem animated:NO];
+        
+        [self.view addSubview:bar];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.translatesAutoresizingMaskIntoConstraints = NO;
+        // initialize
+        
+        NSLayoutConstraint *width =[NSLayoutConstraint
+                                    constraintWithItem:bar
+                                    attribute:NSLayoutAttributeWidth
+                                    relatedBy:NSLayoutRelationEqual
+                                    toItem:self.view
+                                    attribute:NSLayoutAttributeWidth
+                                    multiplier:2.0
+                                    constant:0];
+        NSLayoutConstraint *top = [NSLayoutConstraint
+                                   constraintWithItem:bar
+                                   attribute:NSLayoutAttributeTop
+                                   relatedBy:NSLayoutRelationEqual
+                                   toItem:self.view
+                                   attribute:NSLayoutAttributeTop
+                                   multiplier:1.0f
+                                   constant:0.f];
+        
+        [self.view addConstraint:width];
+        [self.view addConstraint:top];
+        
+        [self.view layoutSubviews];
     }
+}
+
+- (void)voltar
+{
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
