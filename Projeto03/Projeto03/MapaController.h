@@ -15,6 +15,7 @@
 #define MODO_LOCALIZAR_ROLES 0
 #define MODO_SELECIONAR_LOCAL 1
 
+@class RoleAnnotation;
 @interface MapaController : UIViewController <MKMapViewDelegate, UITextFieldDelegate, ListaRolesDelegate>
 {
     CGPoint coordinates;
@@ -29,6 +30,9 @@
 @property (weak, nonatomic) IBOutlet UIView *mapaView;
 @property (strong, nonatomic) NSMutableArray *matchItens;
 
+@property RoleAnnotation *ultimoPin;
+
+@property NSInteger *corPin;
 @property BOOL *achou;
 
 @property UIView *viewAnotacao;

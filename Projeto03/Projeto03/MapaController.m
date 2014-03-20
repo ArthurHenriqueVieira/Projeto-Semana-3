@@ -101,6 +101,8 @@
 {
     if(gesture.state == UIGestureRecognizerStateBegan)
     {
+        [self setCorPin:0];
+        
         CGPoint point = [gesture locationInView:[self mapa]];
         CLLocationCoordinate2D locCoord = [[self mapa] convertPoint:point toCoordinateFromView:[self mapa]];
         
@@ -269,6 +271,13 @@
         if([annotation class] == [RoleAnnotation class])
         {
             annotationView = [[RoleAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Role"];
+            if ([self corPin] == 1)
+            {
+                [(MKPinAnnotationView*)annotationView setPinColor:MKPinAnnotationColorGreen];
+            }else if ([self corPin] == 0)
+            {
+                [(MKPinAnnotationView*)annotationView setPinColor:MKPinAnnotationColorRed];
+            }
         }
         else
         {
@@ -326,6 +335,8 @@
     {
         [self criarViewAnotacao:view.annotation];
     }
+    
+    [self setUltimoPin:view.annotation];
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
@@ -394,8 +405,14 @@
     [[self mapa] removeAnnotations:[[self mapa] annotations]];
     
     [self atualizarEventosProximos];
+    [self colocarUltimoPin];
     
     [[self endereco] setText:nil];
+}
+
+- (void)colocarUltimoPin
+{
+    [[self mapa] addAnnotation:[self ultimoPin]];
 }
 
 - (void)mostraRota:(MKDirectionsResponse *)response
@@ -477,12 +494,26 @@
         else{
             for (MKMapItem *item in response.mapItems){
                 
+                [self setCorPin:1];
+                
                 [self.matchItens addObject:item];
-                MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc]init];
+                Role *role = [[Role alloc] init];
+                
+                NSString *locatedAt = [[item.placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+                
+                NSString *nome = [NSString stringWithFormat:@"%@ ENDERECO: %@", item.name, locatedAt];
+                
+                role.endereco = [[Endereco alloc] initWithNome:nome andCoordinate:item.placemark.coordinate];
+                
+                RoleAnnotation *pointAnnotation = [[RoleAnnotation alloc] initWithRole:role];
                 pointAnnotation.coordinate = item.placemark.coordinate;
                 pointAnnotation.title = item.name;
                 [self.mapa addAnnotation:pointAnnotation];
                 NSLog(@"%@",item.name);
+                
+                [pointAnnotation setCoordinate:item.placemark.coordinate];
+                
+                [[self mapa] addAnnotation:pointAnnotation];
                 
                 [self setAchou:YES];
             }
