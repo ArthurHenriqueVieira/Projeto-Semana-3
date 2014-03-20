@@ -33,7 +33,7 @@
     
     // Inicializando o mapa e o colocando na view
     [self setMapa:[[MKMapView alloc] initWithFrame:CGRectMake(0, 90, self.view.frame.size.width, self.view.frame.size.height)]];
-    [[self view] addSubview:[self mapa]];
+    [[self mapaView] addSubview:[self mapa]];
     
     // Mostrando a localização do usuário
     [[self mapa] setShowsUserLocation:true];
@@ -43,23 +43,26 @@
     [self.mapa setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     // Inicializando o endereço
-    [self setEndereco:[[UITextField alloc] initWithFrame:CGRectMake(0, 65, 320, 30)]];
-    [[self endereco] setBorderStyle:UITextBorderStyleRoundedRect];
+//    [self setEndereco:[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 320, 30)]];
+//    [[self endereco] setBorderStyle:UITextBorderStyleRoundedRect];
     [[self endereco] setDelegate:self];
-    [[self view] addSubview:[self endereco]];
+//    [[self mapaView] addSubview:[self endereco]];
     
     UIView *mapa = self.mapa;
-    UIView *buscaBar = self.endereco;
-    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(mapa, buscaBar);
+//    UIView *buscaBar = self.endereco;
+    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(mapa);
     
 //    NSArray *constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-[mapa(>=100)]-|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
     
-    NSArray *constraint = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[buscaBar]|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
+    // Constraints do Mapa e da Barra de Busca
+    NSArray *constraintsH = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[mapa]|" options:0 metrics:nil views:viewsDictionary];
+    NSArray *constraintsV = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[mapa]|" options:0 metrics:nil views:viewsDictionary];
     
-    NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[buscaBar]|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
+    // Junção dos arrays de constraints
+    NSArray *constraints = [constraintsH arrayByAddingObjectsFromArray:constraintsV];
     
-    [self.view addConstraints:constraint];
-//    [self.view addConstraints:constraint2];
+    // Aplicação dos constraints
+    [self.mapaView addConstraints:constraints];
     
     
     NSLog(@"%lf x %lf   %lf x %lf", self.mapa.frame.origin.x, self.mapa.frame.origin.y, self.mapa.frame.size.width, self.mapa.frame.size.height);

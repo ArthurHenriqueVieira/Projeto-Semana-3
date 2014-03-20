@@ -19,10 +19,12 @@
 }
 
 @property (strong, nonatomic) MKMapView *mapa;
-@property (strong, nonatomic) UITextField *endereco;
+//@property (strong, nonatomic) UITextField *endereco;
+@property (weak, nonatomic) IBOutlet UITextField *endereco;
 @property (strong, nonatomic) MKMapItem *inicio;
 @property (strong, nonatomic) MKMapItem *destino;
 @property (strong, nonatomic) MKPolylineRenderer *renderer;
+@property (weak, nonatomic) IBOutlet UIView *mapaView;
 
 @property UIView *viewAnotacao;
 
