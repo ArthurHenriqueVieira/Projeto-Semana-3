@@ -148,7 +148,7 @@
             
             [[self mapa] addAnnotation:ponto];
             
-            [[ListaRoles lista] adicionarRoleDo:nil noEndereco:locatedAt comDescricao:@"bla" naData:[NSDate date] comConvidados:nil sendoPublico:NO];
+            [[ListaRoles lista] adicionarRoleDo:nil noEndereco:locatedAt comDescricao:self.descricaoDoRole naData:[NSDate date] comConvidados:nil sendoPublico:NO];
         }];
     }
 }

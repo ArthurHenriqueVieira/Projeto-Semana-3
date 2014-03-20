@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIView *mapaView;
 @property (strong, nonatomic) NSMutableArray *matchItens;
 
+@property NSString *descricaoDoRole;
+
 @property BOOL *achou;
 
 @property UIView *viewAnotacao;
