@@ -77,6 +77,13 @@
     }
     else if(self.modoAtual == MODO_SELECIONAR_LOCAL)
     {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tip"
+                                                        message:@"Hold on the Map to put the PIN!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
         UILongPressGestureRecognizer *segurar = [[UILongPressGestureRecognizer alloc]
                                               initWithTarget:self action:@selector(colocarPinch:)];
         [segurar setMinimumPressDuration:1.0];  //tempo que tem que ficar com o dedo na tela
