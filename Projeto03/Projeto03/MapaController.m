@@ -52,7 +52,6 @@
 //    UIView *buscaBar = self.endereco;
     NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(mapa);
     
-<<<<<<< HEAD
 //    NSArray *constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-[mapa(>=100)]-|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
     
     // Constraints do Mapa e da Barra de Busca
@@ -64,12 +63,6 @@
     
     // Aplicação dos constraints
     [self.mapaView addConstraints:constraints];
-    
-=======
-    NSArray *constraint = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[buscaBar]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:viewsDictionary];
-    
-    [self.view addConstraints:constraint];
->>>>>>> b3be692ecd3d995e2f40261ac332c4e637f10cbd
     
     NSLog(@"%lf x %lf   %lf x %lf", self.mapa.frame.origin.x, self.mapa.frame.origin.y, self.mapa.frame.size.width, self.mapa.frame.size.height);
     
