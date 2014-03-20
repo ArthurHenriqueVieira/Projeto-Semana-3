@@ -23,6 +23,9 @@
 @property (strong, nonatomic) MKMapItem *inicio;
 @property (strong, nonatomic) MKMapItem *destino;
 @property (strong, nonatomic) MKPolylineRenderer *renderer;
+@property (strong, nonatomic) NSMutableArray *matchItens;
+
+@property BOOL *achou;
 
 @property UIView *viewAnotacao;
 

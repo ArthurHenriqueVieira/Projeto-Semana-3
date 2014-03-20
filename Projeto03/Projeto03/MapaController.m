@@ -128,8 +128,17 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    [self marcarPosicaoNoMapa];
-
+    [self searchAPI];
+    
+    if (![self achou])
+    {
+        [self marcarPosicaoNoMapa];
+    }
+    
+    [[self mapa] removeAnnotations:[[self mapa] annotations]];
+    
+    [self atualizarEventosProximos];
+    
     return true;
 }
 
@@ -350,6 +359,12 @@
     }
     
     [self.viewAnotacao removeFromSuperview];
+    
+    [[self mapa] removeAnnotations:[[self mapa] annotations]];
+    
+    [self atualizarEventosProximos];
+    
+    [[self endereco] setText:nil];
 }
 
 - (void)mostraRota:(MKDirectionsResponse *)response
@@ -407,6 +422,41 @@
     
     self.viewAnotacao = view;
     [[self view] addSubview:view];
+}
+
+-(void)searchAPI
+{
+    
+    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc]init];
+    request.naturalLanguageQuery = self.endereco.text;
+    /*self.textField.text*/
+    request.region = self.mapa.region;
+    
+    self.matchItens = [[NSMutableArray alloc]init];
+    
+    MKLocalSearch *search = [[MKLocalSearch alloc]initWithRequest:request];
+    
+    [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
+        if (response.mapItems.count == 0) {
+            NSLog(@"sem resultados");
+            
+            [self setAchou:NO];
+        }
+        
+        else{
+            for (MKMapItem *item in response.mapItems){
+                
+                [self.matchItens addObject:item];
+                MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc]init];
+                pointAnnotation.coordinate = item.placemark.coordinate;
+                pointAnnotation.title = item.name;
+                [self.mapa addAnnotation:pointAnnotation];
+                NSLog(@"%@",item.name);
+                
+                [self setAchou:YES];
+            }
+        }
+    }];
 }
 
 @end
