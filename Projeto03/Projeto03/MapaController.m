@@ -80,51 +80,7 @@
                                               initWithTarget:self action:@selector(colocarPinch:)];
         [segurar setMinimumPressDuration:1.0];  //tempo que tem que ficar com o dedo na tela
         [[self mapa] addGestureRecognizer:segurar];
-        
-        
-        // Adiciona um navigation bar na view
-        UINavigationBar *bar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64.0)];
-        bar.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:@"Selecionar Endereço"];
-        navItem.hidesBackButton = NO;
-        [navItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Voltar" style:UIBarButtonItemStylePlain target:self action:@selector(voltar)]];
-        
-        [bar pushNavigationItem:navItem animated:NO];
-        
-        [self.view addSubview:bar];
-        
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.translatesAutoresizingMaskIntoConstraints = NO;
-        // initialize
-        
-        NSLayoutConstraint *width =[NSLayoutConstraint
-                                    constraintWithItem:bar
-                                    attribute:NSLayoutAttributeWidth
-                                    relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                    attribute:NSLayoutAttributeWidth
-                                    multiplier:2.0
-                                    constant:0];
-        NSLayoutConstraint *top = [NSLayoutConstraint
-                                   constraintWithItem:bar
-                                   attribute:NSLayoutAttributeTop
-                                   relatedBy:NSLayoutRelationEqual
-                                   toItem:self.view
-                                   attribute:NSLayoutAttributeTop
-                                   multiplier:1.0f
-                                   constant:0.f];
-        
-        [self.view addConstraint:width];
-        [self.view addConstraint:top];
-        
-        [self.view layoutSubviews];
     }
-}
-
-- (void)voltar
-{
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
