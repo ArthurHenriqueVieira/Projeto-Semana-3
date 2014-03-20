@@ -24,7 +24,13 @@
 @property (strong, nonatomic) MKMapItem *inicio;
 @property (strong, nonatomic) MKMapItem *destino;
 @property (strong, nonatomic) MKPolylineRenderer *renderer;
+<<<<<<< HEAD
 @property (weak, nonatomic) IBOutlet UIView *mapaView;
+=======
+@property (strong, nonatomic) NSMutableArray *matchItens;
+
+@property BOOL *achou;
+>>>>>>> b3be692ecd3d995e2f40261ac332c4e637f10cbd
 
 @property UIView *viewAnotacao;
 

@@ -52,6 +52,7 @@
 //    UIView *buscaBar = self.endereco;
     NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(mapa);
     
+<<<<<<< HEAD
 //    NSArray *constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-[mapa(>=100)]-|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:viewsDictionary];
     
     // Constraints do Mapa e da Barra de Busca
@@ -64,10 +65,13 @@
     // Aplicação dos constraints
     [self.mapaView addConstraints:constraints];
     
+=======
+    NSArray *constraint = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[buscaBar]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:viewsDictionary];
+    
+    [self.view addConstraints:constraint];
+>>>>>>> b3be692ecd3d995e2f40261ac332c4e637f10cbd
     
     NSLog(@"%lf x %lf   %lf x %lf", self.mapa.frame.origin.x, self.mapa.frame.origin.y, self.mapa.frame.size.width, self.mapa.frame.size.height);
-    
-    //[self.view addConstraints:constraintsArray];
     
     // Sem documentação
     self.adicionouRoles = NO;
@@ -131,8 +135,17 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    [self marcarPosicaoNoMapa];
-
+    [self searchAPI];
+    
+    if (![self achou])
+    {
+        [self marcarPosicaoNoMapa];
+    }
+    
+    [[self mapa] removeAnnotations:[[self mapa] annotations]];
+    
+    [self atualizarEventosProximos];
+    
     return true;
 }
 
@@ -353,6 +366,12 @@
     }
     
     [self.viewAnotacao removeFromSuperview];
+    
+    [[self mapa] removeAnnotations:[[self mapa] annotations]];
+    
+    [self atualizarEventosProximos];
+    
+    [[self endereco] setText:nil];
 }
 
 - (void)mostraRota:(MKDirectionsResponse *)response
@@ -410,6 +429,41 @@
     
     self.viewAnotacao = view;
     [[self view] addSubview:view];
+}
+
+-(void)searchAPI
+{
+    
+    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc]init];
+    request.naturalLanguageQuery = self.endereco.text;
+    /*self.textField.text*/
+    request.region = self.mapa.region;
+    
+    self.matchItens = [[NSMutableArray alloc]init];
+    
+    MKLocalSearch *search = [[MKLocalSearch alloc]initWithRequest:request];
+    
+    [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
+        if (response.mapItems.count == 0) {
+            NSLog(@"sem resultados");
+            
+            [self setAchou:NO];
+        }
+        
+        else{
+            for (MKMapItem *item in response.mapItems){
+                
+                [self.matchItens addObject:item];
+                MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc]init];
+                pointAnnotation.coordinate = item.placemark.coordinate;
+                pointAnnotation.title = item.name;
+                [self.mapa addAnnotation:pointAnnotation];
+                NSLog(@"%@",item.name);
+                
+                [self setAchou:YES];
+            }
+        }
+    }];
 }
 
 @end
