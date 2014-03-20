@@ -103,11 +103,42 @@
     {
         CGPoint point = [gesture locationInView:[self mapa]];
         CLLocationCoordinate2D locCoord = [[self mapa] convertPoint:point toCoordinateFromView:[self mapa]];
-        MKPointAnnotation *ponto = [[MKPointAnnotation alloc] init];
         
-        [ponto setCoordinate:locCoord];
+        CLGeocoder *ceo = [[CLGeocoder alloc]init];
+        CLLocation *loc = [[CLLocation alloc]initWithLatitude:locCoord.latitude longitude:locCoord.longitude]; //insert your coordinates
         
-        [[self mapa] addAnnotation:ponto];
+        [ceo reverseGeocodeLocation: loc completionHandler:^(NSArray *placemarks, NSError *error)
+        {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            //NSLog(@"placemark %@",placemark);
+            //String to hold address
+            NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+            //NSLog(@"addressDictionary %@", placemark.addressDictionary);
+            
+            //NSLog(@"placemark %@",placemark.region);
+            //NSLog(@"placemark %@",placemark.country);  // Give Country Name
+            //NSLog(@"placemark %@",placemark.locality); // Extract the city name
+            //NSLog(@"location %@",placemark.name);
+            //NSLog(@"location %@",placemark.ocean);
+            //NSLog(@"location %@",placemark.postalCode);
+            //NSLog(@"location %@",placemark.subLocality);
+            
+            //NSLog(@"location %@",placemark.location);
+            //Print the location to console
+            NSLog(@"I am currently at %@",locatedAt);
+            
+            Role *role = [[Role alloc] init];
+            
+            role.endereco = [[Endereco alloc] initWithNome:locatedAt andCoordinate:locCoord];
+            
+            RoleAnnotation *ponto = [[RoleAnnotation alloc] initWithRole:role];
+            
+            [ponto setCoordinate:locCoord];
+            
+            [[self mapa] addAnnotation:ponto];
+            
+            [[ListaRoles lista] adicionarRoleDo:nil noEndereco:locatedAt comDescricao:@"bla" naData:[NSDate date] comConvidados:nil sendoPublico:NO];
+        }];
     }
 }
 
@@ -458,6 +489,8 @@
         }
     }];
 }
+
+
 
 @end
 

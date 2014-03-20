@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 ARTHUR HENRIQUE VIEIRA DE OLIVEIRA. All rights reserved.
 //
 
+#import <CoreLocation/CLGeocoder.h>
+#import <CoreLocation/CLPlacemark.h>
 #import "MenuPrincipalController.h"
 #import "ListaRolesDelegate.h"
 #import "Role.h"
