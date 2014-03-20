@@ -43,6 +43,7 @@
     {
         // Troca o modo do mapa para localização de roles
         [segue.destinationViewController setModoAtual:MODO_SELECIONAR_LOCAL];
+        [segue.destinationViewController setDescricaoDoRole:self.textoDescricao.text];
     }
 }
 
@@ -52,6 +53,8 @@
     {
         [view resignFirstResponder];
     }
+    
+    [self.textoDescricao resignFirstResponder];
     
     UITouch *touch = [touches anyObject];
     
