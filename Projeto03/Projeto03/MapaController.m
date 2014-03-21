@@ -324,7 +324,7 @@
     }
     
     CGPoint point = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
-    CLLocationCoordinate2D locCoord = [[self mapa] convertPoint:point toCoordinateFromView:[self mapa]];
+    //CLLocationCoordinate2D locCoord = [[self mapa] convertPoint:point toCoordinateFromView:[self mapa]];
     
     point = [self.mapa convertCoordinate:[view.annotation coordinate] toPointToView:self.mapa];
     
@@ -451,9 +451,9 @@
 
 - (void)criarViewAnotacao:(RoleAnnotation*)annotation
 {
-    CGPoint tamanho = CGPointMake(250, 300);
+    CGPoint tamanho = CGPointMake(200, 100);
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(self.mapa.frame.size.width/2 - tamanho.x/2, (self.mapa.frame.size.height/2 - tamanho.y/2) + 40, tamanho.x, tamanho.y)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(self.mapa.frame.size.width/2 - tamanho.x/2, (self.mapa.frame.size.height/2 - tamanho.y/2) + 60, tamanho.x, tamanho.y)];
     
     //view.backgroundColor = [UIColor whiteColor];
     view.backgroundColor = [UIColor whiteColor ];
