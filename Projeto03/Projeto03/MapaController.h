@@ -15,7 +15,36 @@
 #define MODO_LOCALIZAR_ROLES 0
 #define MODO_SELECIONAR_LOCAL 1
 
-@class RoleAnnotation;
+@class MapaController;
+
+@interface AnotacaoDeMapa : MKPointAnnotation
+
+@property NSString *endereco;
+
+@end
+
+// RoleAnnotation
+@interface RoleAnnotation : AnotacaoDeMapa
+
+@property Role *role;
+
+- (id)initWithRole:(Role*)role;
+
+@end
+
+// PontoDeinterece
+@interface PontoDeInteresse : AnotacaoDeMapa
+
+@end
+
+// RoleAnnotationView
+@interface RoleAnnotationView : MKPinAnnotationView
+
+@property (weak) MapaController *mapa;
+
+@end
+
+// MapaController
 @interface MapaController : UIViewController <MKMapViewDelegate, UITextFieldDelegate, ListaRolesDelegate>
 {
     CGPoint coordinates;
@@ -32,10 +61,10 @@
 
 @property RoleAnnotation *ultimoPin;
 
-@property NSInteger *corPin;
+@property NSInteger corPin;
 @property NSString *descricaoDoRole;
 
-@property BOOL *achou;
+@property BOOL achou;
 
 @property UIView *viewAnotacao;
 
@@ -48,19 +77,5 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tiposMapa;
 
 - (IBAction)mudarMapa:(id)sender;
-
-@end
-
-@interface RoleAnnotation : MKPointAnnotation
-
-@property Role *role;
-
-- (id)initWithRole:(Role*)role;
-
-@end
-
-@interface RoleAnnotationView : MKPinAnnotationView
-
-@property (weak) MapaController *mapa;
 
 @end

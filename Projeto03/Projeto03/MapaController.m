@@ -201,6 +201,7 @@
     {
         RoleAnnotation *ponto = [[RoleAnnotation alloc] initWithRole:role];
         
+        ponto.endereco = role.endereco._nome;
         ponto.coordinate = role.endereco._coord;
         [ponto setTitle:role.endereco._nome];
         
@@ -272,7 +273,7 @@
 {
     // Caso o tipo de anotação seja um MKUserLocation, nil é retornado para que o controle
     // padrão seja criado
-    if([annotation class] == [MKUserLocation class])
+    if([annotation isKindOfClass:[MKUserLocation class]])
     {
         return nil;
     }
@@ -280,20 +281,14 @@
     MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"Role"];
     if(!annotationView)
     {
-        if([annotation class] == [RoleAnnotation class])
+        if([annotation isKindOfClass:[RoleAnnotation class]])
         {
             annotationView = [[RoleAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Role"];
-            if ([self corPin] == 1)
-            {
-                [(MKPinAnnotationView*)annotationView setPinColor:MKPinAnnotationColorGreen];
-            }else if ([self corPin] == 0)
-            {
-                [(MKPinAnnotationView*)annotationView setPinColor:MKPinAnnotationColorRed];
-            }
         }
         else
         {
             annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Role"];
+            [(MKPinAnnotationView*)annotationView setPinColor:MKPinAnnotationColorGreen];
         }
         
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
@@ -343,7 +338,7 @@
     // Dá um zoom na região atual do usuário
     //self.mapa.region = MKCoordinateRegionMake([view.annotation coordinate], MKCoordinateSpanMake(0.1, 0.1));
     
-    if([view class] == [RoleAnnotationView class])
+    if([view.annotation isKindOfClass:[AnotacaoDeMapa class]])
     {
         [self criarViewAnotacao:view.annotation];
     }
@@ -353,7 +348,7 @@
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
-    if([view class] == [RoleAnnotationView class])
+    if([view.annotation isKindOfClass:[AnotacaoDeMapa class]])
     {
         [self.viewAnotacao removeFromSuperview];
     }
@@ -367,8 +362,6 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     RoleAnnotation *annotation = view.annotation;
-    
-    
     
     self.roleParaMostrar = annotation.role;
     
@@ -449,7 +442,7 @@
     return [self renderer];
 }
 
-- (void)criarViewAnotacao:(RoleAnnotation*)annotation
+- (void)criarViewAnotacao:(AnotacaoDeMapa*)annotation
 {
     CGPoint tamanho = CGPointMake(200, 100);
     
@@ -466,13 +459,13 @@
     
     UILabel *nomeEndereco = [[UILabel alloc] initWithFrame:CGRectMake(2, 2, view.frame.size.width, 20)];
     
-    stringEndereco = [NSString stringWithFormat:@"%@", annotation.role.endereco._nome];
+    stringEndereco = [NSString stringWithFormat:@"%@", annotation.endereco];
     nomeEndereco.text = stringEndereco;
     nomeEndereco.numberOfLines = 0;
     [nomeEndereco sizeToFit];
     [view addSubview:nomeEndereco];
     
-    [[self endereco] setText:[[[annotation role] endereco] _nome]];
+    [[self endereco] setText:annotation.endereco];
     
     UIButton *btnRota = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [btnRota setTitle:@"Calcular Rota" forState:UIControlStateNormal];
@@ -486,7 +479,6 @@
 
 -(void)searchAPI
 {
-    
     MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc]init];
     request.naturalLanguageQuery = self.endereco.text;
     /*self.textField.text*/
@@ -509,23 +501,18 @@
                 [self setCorPin:1];
                 
                 [self.matchItens addObject:item];
-                Role *role = [[Role alloc] init];
                 
                 NSString *locatedAt = [[item.placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
                 
                 NSString *nome = [NSString stringWithFormat:@"%@ ENDERECO: %@", item.name, locatedAt];
                 
-                role.endereco = [[Endereco alloc] initWithNome:nome andCoordinate:item.placemark.coordinate];
+                PontoDeInteresse *pontoDeInteresse = [[PontoDeInteresse alloc] init];
                 
-                RoleAnnotation *pointAnnotation = [[RoleAnnotation alloc] initWithRole:role];
-                pointAnnotation.coordinate = item.placemark.coordinate;
-                pointAnnotation.title = item.name;
-                [self.mapa addAnnotation:pointAnnotation];
-                NSLog(@"%@",item.name);
+                pontoDeInteresse.endereco = nome;
+                pontoDeInteresse.coordinate = item.placemark.coordinate;
+                pontoDeInteresse.title = item.name;
                 
-                [pointAnnotation setCoordinate:item.placemark.coordinate];
-                
-                [[self mapa] addAnnotation:pointAnnotation];
+                [[self mapa] addAnnotation:pontoDeInteresse];
                 
                 [self setAchou:YES];
             }
@@ -537,6 +524,15 @@
 
 @end
 
+// AnotacaoDeMapa
+@implementation AnotacaoDeMapa
+
+@end
+
+// PontoDeInteresse
+@implementation PontoDeInteresse
+
+@end
 
 // RoleAnnotation
 @implementation RoleAnnotation
@@ -552,7 +548,6 @@
 }
 
 @end
-
 
 // RoleAnnotationView
 @implementation RoleAnnotationView
