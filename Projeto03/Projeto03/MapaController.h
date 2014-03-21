@@ -30,14 +30,11 @@
 @property (weak, nonatomic) IBOutlet UIView *mapaView;
 @property (strong, nonatomic) NSMutableArray *matchItens;
 
-<<<<<<< HEAD
 @property RoleAnnotation *ultimoPin;
 
 @property NSInteger *corPin;
-=======
 @property NSString *descricaoDoRole;
 
->>>>>>> 36267b7b4c9fa98a43b8d5feceb293fd03d432ac
 @property BOOL *achou;
 
 @property UIView *viewAnotacao;

@@ -166,6 +166,7 @@
     for (UIView *view in [[self view] subviews])
     {
         [view resignFirstResponder];
+        [[self endereco] setText:nil];
     }
 }
 
