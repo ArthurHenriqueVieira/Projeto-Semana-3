@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="t3u-7b-gQI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="t3u-7b-gQI">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Lista De Role Controller - Lista de Rolês-->
@@ -49,8 +49,8 @@
                                 <rect key="frame" x="20" y="213" width="280" height="355"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDY-x6-UoH">
-                                        <rect key="frame" x="105" y="325" width="175" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDY-x6-UoH">
+                                        <rect key="frame" x="75" y="325" width="205" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Escolher local no mapa >">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,6 +158,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" title="Cadastrar Rolê" id="mNE-LN-FRT"/>
                     <connections>
                         <outlet property="botaoData" destination="Ogl-kX-5ZL" id="Q4g-VS-9tq"/>
+                        <outlet property="botaoVerLocal" destination="BDY-x6-UoH" id="vdQ-8z-YLc"/>
                         <outlet property="containerDataRole" destination="Lqm-Tg-kWT" id="bhW-Qr-7fC"/>
                         <outlet property="dataRole" destination="ZMd-0b-5pc" id="e3H-2K-BHV"/>
                         <outlet property="imagemAvatar" destination="tKz-ei-fBb" id="zx4-sS-sc5"/>
@@ -331,7 +332,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QrQ-b1-ldz"/>
+        <segue reference="Rru-nw-Wlf"/>
         <segue reference="yDm-UC-xRy"/>
     </inferredMetricsTieBreakers>
 </document>

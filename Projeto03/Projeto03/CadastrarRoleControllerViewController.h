@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tabelaConvidados;
 @property (weak, nonatomic) IBOutlet UIView *containerDataRole;
 @property (weak, nonatomic) IBOutlet UIButton *botaoData;
+@property (weak, nonatomic) IBOutlet UIButton *botaoVerLocal;
 
 @property int modoAtual;
 @property BOOL veioDeMapa;

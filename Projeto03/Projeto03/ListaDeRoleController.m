@@ -52,7 +52,7 @@
         
         self.roleSelecionado = self.roles[[self.tableView indexPathForSelectedRow].row];
         
-        controller.veioDeMapa = YES;
+        controller.veioDeMapa = NO;
         [controller exibirRole:self.roleSelecionado];
     }
 }

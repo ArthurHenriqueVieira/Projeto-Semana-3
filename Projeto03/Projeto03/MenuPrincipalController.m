@@ -18,14 +18,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"menuPrincipal"])
+    if([segue.identifier isEqualToString:@"mapaDeRoles"])
     {
         // Troca o modo do mapa para localização de roles
         [segue.destinationViewController setModoAtual:MODO_LOCALIZAR_ROLES];
     }
     else if([segue.identifier isEqualToString:@"criarRole"])
     {
-        [segue.destinationViewController setModoAtual:MODO_CRIAR_ROLE];
+        [segue.destinationViewController criarRole];
     }
 }
 

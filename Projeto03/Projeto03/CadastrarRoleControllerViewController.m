@@ -41,9 +41,12 @@
 {
     if([segue.identifier compare:@"escolherLocal"] == NSOrderedSame)
     {
-        // Troca o modo do mapa para localização de roles
-        [segue.destinationViewController setModoAtual:MODO_SELECIONAR_LOCAL];
-        [segue.destinationViewController setDescricaoDoRole:self.textoDescricao.text];
+        if(self.modoAtual == MODO_CRIAR_ROLE || self.modoAtual == MODO_EDITAR_ROLE)
+        {
+            // Troca o modo do mapa para localização de roles
+            [segue.destinationViewController setModoAtual:MODO_SELECIONAR_LOCAL];
+            [segue.destinationViewController setDescricaoDoRole:self.textoDescricao.text];
+        }
     }
 }
 
@@ -112,7 +115,9 @@
     
     [self atualizarData];
     
+    [self.botaoVerLocal setTitle:@"Ver Local no Mapa >" forState:UIControlStateNormal];
     self.textoDescricao.editable = NO;
+    self.modoAtual = MODO_EXIBIR_ROLE;
 }
 
 - (void)editarRole:(Role*)role
@@ -121,12 +126,15 @@
     
     [self exibirRole:role];
     
+    [self.botaoVerLocal setTitle:@"Escolher Local no Mapa >" forState:UIControlStateNormal];
     self.textoDescricao.editable = YES;
+    self.modoAtual = MODO_EDITAR_ROLE;
 }
 
 - (void)criarRole
 {
     roleAtual = nil;
+    self.modoAtual = MODO_CRIAR_ROLE;
 }
 
 - (void)didReceiveMemoryWarning

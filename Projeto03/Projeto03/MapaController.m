@@ -63,9 +63,6 @@
     
     // Aplicação dos constraints
     [self.mapaView addConstraints:constraints];
-    
-    NSLog(@"%lf x %lf   %lf x %lf", self.mapa.frame.origin.x, self.mapa.frame.origin.y, self.mapa.frame.size.width, self.mapa.frame.size.height);
-    
     // Sem documentação
     self.adicionouRoles = NO;
     
@@ -123,21 +120,10 @@
         [ceo reverseGeocodeLocation: loc completionHandler:^(NSArray *placemarks, NSError *error)
         {
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
-            //NSLog(@"placemark %@",placemark);
+            
             //String to hold address
             NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-            //NSLog(@"addressDictionary %@", placemark.addressDictionary);
             
-            //NSLog(@"placemark %@",placemark.region);
-            //NSLog(@"placemark %@",placemark.country);  // Give Country Name
-            //NSLog(@"placemark %@",placemark.locality); // Extract the city name
-            //NSLog(@"location %@",placemark.name);
-            //NSLog(@"location %@",placemark.ocean);
-            //NSLog(@"location %@",placemark.postalCode);
-            //NSLog(@"location %@",placemark.subLocality);
-            
-            //NSLog(@"location %@",placemark.location);
-            //Print the location to console
             NSLog(@"I am currently at %@",locatedAt);
             
             Role *role = [[Role alloc] init];
@@ -303,21 +289,6 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    if(![view.annotation isKindOfClass:[MKUserLocation class]])
-    {
-        /*
-        CGSize  calloutSize = CGSizeMake(100.0, 80.0);
-        UIView *calloutView = [[UIView alloc] initWithFrame:CGRectMake(0, calloutSize.height, calloutSize.width, calloutSize.height)];
-        calloutView.backgroundColor = [UIColor whiteColor];
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(5.0, 5.0, calloutSize.width - 10.0, calloutSize.height - 10.0);
-        [button setTitle:@"OK" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(checkin) forControlEvents:UIControlEventTouchUpInside];
-        [calloutView addSubview:button];
-        [view.superview addSubview:calloutView];
-        */
-    }
-    
     CGPoint point = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
     //CLLocationCoordinate2D locCoord = [[self mapa] convertPoint:point toCoordinateFromView:[self mapa]];
     
@@ -327,9 +298,7 @@
     
     [self.mapa setCenterCoordinate:[view.annotation coordinate]];
     
-    CLLocationCoordinate2D coordenada = [self.mapa convertPoint:CGPointMake(self.mapa.frame.size.width / 2, self.mapa.frame.size.height / 1.21f) toCoordinateFromView:self.mapa];
-    
-//    [self.mapa setCenterCoordinate:coordenada];
+    CLLocationCoordinate2D coordenada = [self.mapa convertPoint:CGPointMake(self.mapa.frame.size.width / 2, self.mapa.frame.size.height / 1.14f) toCoordinateFromView:self.mapa];
     
     [self.mapa setCenterCoordinate:locacao];
     
@@ -444,7 +413,7 @@
 
 - (void)criarViewAnotacao:(AnotacaoDeMapa*)annotation
 {
-    CGPoint tamanho = CGPointMake(200, 100);
+    CGPoint tamanho = CGPointMake(200, 250);
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(self.mapa.frame.size.width/2 - tamanho.x/2, (self.mapa.frame.size.height/2 - tamanho.y/2) + 60, tamanho.x, tamanho.y)];
     
