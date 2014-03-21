@@ -290,6 +290,7 @@
         [(MKPinAnnotationView*)annotationView setPinColor:MKPinAnnotationColorGreen];
     }
     
+    [(MKPinAnnotationView *)annotationView setAnimatesDrop:YES];
     annotationView.canShowCallout = NO;
     annotationView.centerOffset = CGPointMake(1000, 1000);
     annotationView.enabled = YES;
