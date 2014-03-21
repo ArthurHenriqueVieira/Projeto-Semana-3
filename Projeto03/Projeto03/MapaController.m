@@ -279,6 +279,17 @@
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     
+    if([annotation isKindOfClass:[RoleAnnotation class]])
+    {
+        annotationView = [[RoleAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Role"];
+        [(MKPinAnnotationView*)annotationView setPinColor:MKPinAnnotationColorRed];
+    }
+    else
+    {
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Role"];
+        [(MKPinAnnotationView*)annotationView setPinColor:MKPinAnnotationColorGreen];
+    }
+    
     annotationView.canShowCallout = NO;
     annotationView.centerOffset = CGPointMake(1000, 1000);
     annotationView.enabled = YES;
