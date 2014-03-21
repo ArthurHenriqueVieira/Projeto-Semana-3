@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2172F4C318DC987800D9D5BE /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2172F4C218DC987800D9D5BE /* Icon@2x.png */; };
 		21B7573A18CF3D2D006A9986 /* ListaDeRoleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B7573918CF3D2D006A9986 /* ListaDeRoleController.m */; };
 		21B7573D18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B7573C18CF3D8F006A9986 /* CadastrarRoleControllerViewController.m */; };
 		5E3CD03C18CE3EFB00A751DF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3CD03B18CE3EFB00A751DF /* MapKit.framework */; };
@@ -44,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2172F4C218DC987800D9D5BE /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../../Documents/Icon@2x.png"; sourceTree = "<group>"; };
 		21B7573818CF3D2D006A9986 /* ListaDeRoleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaDeRoleController.h; sourceTree = "<group>"; };
 		21B7573918CF3D2D006A9986 /* ListaDeRoleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaDeRoleController.m; sourceTree = "<group>"; };
 		21B7573B18CF3D8F006A9986 /* CadastrarRoleControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastrarRoleControllerViewController.h; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 		5E3D6E1218CE35BC00FE7BDE /* Projeto03 */ = {
 			isa = PBXGroup;
 			children = (
-				2172F4C218DC987800D9D5BE /* Icon@2x.png */,
 				B3D3820D18CE4CE300DF2D16 /* ViewControllers */,
 				5E3D6E1B18CE35BC00FE7BDE /* AppDelegate.h */,
 				5E3D6E1C18CE35BC00FE7BDE /* AppDelegate.m */,
@@ -294,7 +291,6 @@
 				5E3D6E2818CE35BC00FE7BDE /* Images.xcassets in Resources */,
 				5E3D6E2018CE35BC00FE7BDE /* Main_iPhone.storyboard in Resources */,
 				5E3D6E1718CE35BC00FE7BDE /* InfoPlist.strings in Resources */,
-				2172F4C318DC987800D9D5BE /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
