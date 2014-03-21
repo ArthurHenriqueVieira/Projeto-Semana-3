@@ -274,7 +274,6 @@
         else
         {
             annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Role"];
-            [(MKPinAnnotationView*)annotationView setPinColor:MKPinAnnotationColorGreen];
         }
         
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
